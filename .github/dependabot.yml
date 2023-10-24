@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    versioning-strategy: "lockfile-only"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "auto-approve"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "auto-approve"

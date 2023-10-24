@@ -1,0 +1,18 @@
+*.ts
+!*.d.ts
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+/coverage/
+/.github/
+/src/
+/test/
+jest.config.js
+/.eslintrc.json
+/docs/
+.idea
+.vscode
+CONTRIBUTING.md
+changes.md

@@ -1,0 +1,132 @@
+name: "Release and Publish"
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    outputs:
+      working_commit: "${{ steps.working_commit.outputs.value }}"
+    steps:
+      - name: "Clone"
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: "Install"
+        run: |
+          npm ci
+
+      - name: "Lint"
+        run: npm run eslint
+
+      - name: "Test"
+        run: |
+          npm run test
+
+      - name: "Build"
+        run: |
+          npm run build
+
+      - id: working_commit
+        name: "Most recent commit"
+        run: |
+          workingCommit=$(git ls-remote origin -h ${{ github.ref }} | cut -f1)
+          echo "value=$workingCommit" >> $GITHUB_OUTPUT
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ steps.working_commit.outputs.value == github.sha }}
+        with:
+          name: build-artifact
+          path: dist
+
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ needs.build.outputs.working_commit == github.sha }}
+    outputs:
+      version: "${{ steps.version.outputs.next_version }}"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: version
+        name: "Version"
+        run: |
+          previousVersion=$(git describe --tags --abbrev=0 --match='v[0-9].[0-9]*.[0-9]*')
+          nextVersion=$(echo "$previousVersion" | awk -F. '/v[0-9]+.[0-9]+\./{$3++;print}' OFS=.)
+
+          if echo "$nextVersion" | grep -Eqv "^v[0-9].[0-9]{1,}.[0-9]+$"; then
+            echo "Error resolving next version"
+            exit 1
+          fi
+          
+          echo "next_version=$nextVersion" >> "$GITHUB_OUTPUT"
+          echo "previous_version=$previousVersion" >> "$GITHUB_OUTPUT"
+
+      - name: "Create Changelog"
+        run: |
+          changes=$(git log --pretty="- %s" HEAD...${{ steps.version.outputs.previous_version }})
+          printf "## Changes\n\n$changes" > changes.md
+
+      - name: "Create Release"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          outdir=$(mktemp);
+          
+          gh release create ${{ steps.version.outputs.next_version }} \
+          -R ${{ github.repository }} \
+          -F changes.md \
+          -t ${{ steps.version.outputs.next_version }} \
+          --target ${{ github.ref }} 2> $outdir && true; 
+          
+          exitcode=$?; 
+          
+          if [ $exitcode -ne 0 ] && grep -qv "Release.tag_name already exists" $outdir; then
+            cat $outdir
+            exit $exitcode
+          fi
+
+  publish:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - release
+    permissions:
+      contents: read
+      id-token: write
+    if: ${{ needs.build.outputs.working_commit == github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Set Version"
+        run: |
+          nextVersion="${{ needs.release.outputs.version }}"
+          packageVersion=${nextVersion:1}
+          packageJson=$(cat package.json | jq --arg newVersion "$packageVersion"  'select(.version) | .version = $newVersion')
+          echo "$packageJson" > package.json
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+          path: dist
+
+      - name: "Publish"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm publish --provenance --access public

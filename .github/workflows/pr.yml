@@ -1,0 +1,63 @@
+name: "Pull Request"
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  pr:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: "Install"
+        run: |
+          npm ci
+
+      - name: "Lint"
+        run: |
+          npm run eslint
+
+      - name: "Test"
+        run: |
+          npm run test
+
+      - name: "Build"
+        run: |
+          npm run build
+
+  projen_check:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: repo
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Create projen project
+        run: |
+          mkdir pj && cd pj
+          npx projen new awscdk-construct --cdk-version 2.82.0 --git false
+
+      - name: Copy files
+        working-directory: ./pj
+        run: |
+          rm ./src/index.ts && rm ./test/hello.test.ts
+          cp -r ../repo/src/* ./src
+          cp -r ../repo/test/* ./test
+
+      - name: Compile
+        working-directory: ./pj
+        run: |
+          npx projen build
+          
