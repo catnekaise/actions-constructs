@@ -37,4 +37,24 @@ describe('IAM Resource Path', () => {
 
   });
 
+  it('should be immutable builders', () => {
+
+    const builder = ActionsIdentityIamResourcePathBuilder.fromClaimMapping(ClaimMapping.fromClaimsWithTagName({
+      repository: 'repo',
+      repository_owner: 'owner',
+      repository_owner_id: 'ownerId',
+    }));
+
+    const builder2 = builder.claim('repository_owner');
+    builder2.text('omitted');
+
+    let builder3 = builder2.value('repository');
+    builder3 = builder3.text('*');
+
+    expect(builder.toString()).toEqual('');
+    expect(builder2.toString()).toEqual('${aws:principalTag/owner}');
+    expect(builder3.toString()).toEqual('${aws:principalTag/owner}/${aws:principalTag/repo}/*');
+
+  });
+
 });
