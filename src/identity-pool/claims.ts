@@ -1,4 +1,3 @@
-/** @internal **/
 export const GitHubActionClaims = [
   'jti',
   'sub',
@@ -54,10 +53,8 @@ export interface MappedClaim {
   readonly claim: GhaClaim;
 }
 
-/** @internal **/
 export type PartialGhaClaims = Partial<{ [K in typeof GitHubActionClaims[number]]: string }>;
 
-/** @internal **/
 export function createMappedClaims(claims: GhaClaim[] | PartialGhaClaims): MappedClaim[] {
 
   const mappedClaims: MappedClaim[] = [];

@@ -1,8 +1,17 @@
+[![npm (scoped)](https://img.shields.io/npm/v/@catnekaise/actions-constructs?style=flat-square)](https://www.npmjs.com/package/@catnekaise/actions-constructs)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/catnekaise/actions-constructs?sort=semver&style=flat-square)](https://github.com/catnekaise/actions-constructs/releases)
+
 # Actions Constructs
 A set of AWS CDK Constructs for integrating GitHub Actions and AWS.
 
 ### GitHub Actions ABAC in AWS
 At the time of writing, the constructs and utilities of this library relates to `GitHub Actions attribute based access control in AWS` and how to make this as easy as possible using AWS CDK.
+
+## Install
+
+```bash
+npm install @catnekaise/actions-constructs
+```
 
 ## ActionsIdentityPool
 Use this construct to create an `Amazon Cognito Identity Pool` that enables GitHub Actions [OpenID Connect identities](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) to request temporary AWS Credentials. The temporary AWS Credentials will have principal/session tags corresponding with [access token claims](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) which enables attribute based access control (ABAC) to AWS resources based on these claims.
