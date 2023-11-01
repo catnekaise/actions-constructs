@@ -4,12 +4,15 @@ updates:
     versioning-strategy: "lockfile-only"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     labels:
       - "auto-approve"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      development-dependencies:
+        dependency-type: "development"
     labels:
       - "auto-approve"
