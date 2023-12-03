@@ -68,8 +68,12 @@ export class ActionsIdentityIamResourcePathBuilder {
     return new ActionsIdentityIamResourcePathBuilder(this.claimMapping, [...this.path, ...input]);
   }
 
-  toString(separator?: string): string {
-    return this.path.join(separator ?? '/');
+  toStringWithSeparator(separator: string): string {
+    return this.path.join(separator);
+  }
+
+  toString(): string {
+    return this.path.join('/');
   }
 
 }
