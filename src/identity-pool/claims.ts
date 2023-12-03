@@ -28,7 +28,34 @@ export const GitHubActionClaims = [
   // excluding: nbf, exp, iat
 ] as const;
 
-export type GhaClaim = typeof GitHubActionClaims[number];
+export enum GhaClaim {
+  JTI = 'jti',
+  SUB = 'sub',
+  ENVIRONMENT = 'environment',
+  AUD = 'aud',
+  REF = 'ref',
+  SHA = 'sha',
+  REPOSITORY = 'repository',
+  REPOSITORY_OWNER = 'repository_owner',
+  ACTOR_ID = 'actor_id',
+  REPOSITORY_VISIBILITY = 'repository_visibility',
+  REPOSITORY_ID = 'repository_id',
+  REPOSITORY_OWNER_ID = 'repository_owner_id',
+  RUN_ID = 'run_id',
+  RUN_NUMBER = 'run_number',
+  RUN_ATTEMPT = 'run_attempt',
+  RUNNER_ENVIRONMENT = 'runner_environment',
+  ACTOR = 'actor',
+  WORKFLOW = 'workflow',
+  HEAD_REF = 'head_ref',
+  BASE_REF = 'base_ref',
+  EVENT_NAME = 'event_name',
+  REF_TYPE = 'ref_type',
+  JOB_WORKFLOW_REF = 'job_workflow_ref',
+  WORKFLOW_REF = 'workflow_ref',
+  ISS = 'iss',
+  ENTERPRISE = 'enterprise',
+}
 
 export const LibraryClaimTagNameAbbreviations: { [key: string]: string } = {
   repository_owner: 'owner',

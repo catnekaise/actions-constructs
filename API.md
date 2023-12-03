@@ -61,7 +61,7 @@ Returns a string representation of this construct.
 ##### `createPrincipalForPool` <a name="createPrincipalForPool" id="@catnekaise/actions-constructs.ActionsIdentityPool.createPrincipalForPool"></a>
 
 ```typescript
-public createPrincipalForPool(requirements?: PrincipalClaimRequirements, amr?: string): IPrincipal
+public createPrincipalForPool(requirements?: PrincipalClaimRequirements, amr?: AuthenticatedMethodReference): IPrincipal
 ```
 
 Create Principal with default Trust Policy for this Identity Pool.
@@ -74,14 +74,14 @@ Create Principal with default Trust Policy for this Identity Pool.
 
 ###### `amr`<sup>Optional</sup> <a name="amr" id="@catnekaise/actions-constructs.ActionsIdentityPool.createPrincipalForPool.parameter.amr"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 ---
 
 ##### `assignRoleWhenClaimContains` <a name="assignRoleWhenClaimContains" id="@catnekaise/actions-constructs.ActionsIdentityPool.assignRoleWhenClaimContains"></a>
 
 ```typescript
-public assignRoleWhenClaimContains(role: Role, claim: string, value: string): ActionsIdentityPool
+public assignRoleWhenClaimContains(role: Role, claim: GhaClaim, value: string): ActionsIdentityPool
 ```
 
 ###### `role`<sup>Required</sup> <a name="role" id="@catnekaise/actions-constructs.ActionsIdentityPool.assignRoleWhenClaimContains.parameter.role"></a>
@@ -92,7 +92,7 @@ public assignRoleWhenClaimContains(role: Role, claim: string, value: string): Ac
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityPool.assignRoleWhenClaimContains.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -105,7 +105,7 @@ public assignRoleWhenClaimContains(role: Role, claim: string, value: string): Ac
 ##### `assignRoleWhenClaimEquals` <a name="assignRoleWhenClaimEquals" id="@catnekaise/actions-constructs.ActionsIdentityPool.assignRoleWhenClaimEquals"></a>
 
 ```typescript
-public assignRoleWhenClaimEquals(role: Role, claim: string, value: string): ActionsIdentityPool
+public assignRoleWhenClaimEquals(role: Role, claim: GhaClaim, value: string): ActionsIdentityPool
 ```
 
 Assign role when claim equals value.
@@ -118,7 +118,7 @@ Assign role when claim equals value.
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityPool.assignRoleWhenClaimEquals.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -131,7 +131,7 @@ Assign role when claim equals value.
 ##### `assignRoleWhenClaimStartsWith` <a name="assignRoleWhenClaimStartsWith" id="@catnekaise/actions-constructs.ActionsIdentityPool.assignRoleWhenClaimStartsWith"></a>
 
 ```typescript
-public assignRoleWhenClaimStartsWith(role: Role, claim: string, value: string): ActionsIdentityPool
+public assignRoleWhenClaimStartsWith(role: Role, claim: GhaClaim, value: string): ActionsIdentityPool
 ```
 
 Assign role when "sub" claim starts with value.
@@ -144,7 +144,7 @@ Assign role when "sub" claim starts with value.
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityPool.assignRoleWhenClaimStartsWith.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -310,7 +310,7 @@ Returns a string representation of this construct.
 ##### `createPrincipalForPool` <a name="createPrincipalForPool" id="@catnekaise/actions-constructs.ActionsIdentityPoolBase.createPrincipalForPool"></a>
 
 ```typescript
-public createPrincipalForPool(requirements?: PrincipalClaimRequirements, amr?: string): IPrincipal
+public createPrincipalForPool(requirements?: PrincipalClaimRequirements, amr?: AuthenticatedMethodReference): IPrincipal
 ```
 
 Create Principal with default Trust Policy for this Identity Pool.
@@ -323,7 +323,7 @@ Create Principal with default Trust Policy for this Identity Pool.
 
 ###### `amr`<sup>Optional</sup> <a name="amr" id="@catnekaise/actions-constructs.ActionsIdentityPoolBase.createPrincipalForPool.parameter.amr"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 ---
 
@@ -463,7 +463,7 @@ Returns a string representation of this construct.
 ##### `createPrincipalForPool` <a name="createPrincipalForPool" id="@catnekaise/actions-constructs.ActionsIdentityPoolBasic.createPrincipalForPool"></a>
 
 ```typescript
-public createPrincipalForPool(requirements?: PrincipalClaimRequirements, amr?: string): IPrincipal
+public createPrincipalForPool(requirements?: PrincipalClaimRequirements, amr?: AuthenticatedMethodReference): IPrincipal
 ```
 
 Create Principal with default Trust Policy for this Identity Pool.
@@ -476,7 +476,7 @@ Create Principal with default Trust Policy for this Identity Pool.
 
 ###### `amr`<sup>Optional</sup> <a name="amr" id="@catnekaise/actions-constructs.ActionsIdentityPoolBasic.createPrincipalForPool.parameter.amr"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 ---
 
@@ -589,7 +589,7 @@ const actionsIdentityPoolBaseProps: ActionsIdentityPoolBaseProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.claimMapping">claimMapping</a></code> | <code><a href="#@catnekaise/actions-constructs.ClaimMapping">ClaimMapping</a></code> | *No description.* |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.principalClaimRequirements">principalClaimRequirements</a></code> | <code><a href="#@catnekaise/actions-constructs.PrincipalClaimRequirements">PrincipalClaimRequirements</a></code> | Required claims used when not passing any to this.createPrincipalForPool(). |
-| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.authenticatedMethodReference">authenticatedMethodReference</a></code> | <code>string</code> | Authenticated Method Reference. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.authenticatedMethodReference">authenticatedMethodReference</a></code> | <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a></code> | Authenticated Method Reference. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.authenticatedRoleName">authenticatedRoleName</a></code> | <code>string</code> | Name of authenticated role when creating role. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.identityPoolName">identityPoolName</a></code> | <code>string</code> | Name of the Identity Pool. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.openIdConnectProvider">openIdConnectProvider</a></code> | <code>aws-cdk-lib.aws_iam.IOpenIdConnectProvider</code> | Provide this or attempt will be made to import OpenIdConnectProvider using defaults. |
@@ -622,10 +622,10 @@ Required claims used when not passing any to this.createPrincipalForPool().
 ##### `authenticatedMethodReference`<sup>Optional</sup> <a name="authenticatedMethodReference" id="@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps.property.authenticatedMethodReference"></a>
 
 ```typescript
-public readonly authenticatedMethodReference: string;
+public readonly authenticatedMethodReference: AuthenticatedMethodReference;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 Authenticated Method Reference.
 
@@ -701,7 +701,7 @@ const actionsIdentityPoolBasicProps: ActionsIdentityPoolBasicProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.claimMapping">claimMapping</a></code> | <code><a href="#@catnekaise/actions-constructs.ClaimMapping">ClaimMapping</a></code> | *No description.* |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.principalClaimRequirements">principalClaimRequirements</a></code> | <code><a href="#@catnekaise/actions-constructs.PrincipalClaimRequirements">PrincipalClaimRequirements</a></code> | Required claims used when not passing any to this.createPrincipalForPool(). |
-| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.authenticatedMethodReference">authenticatedMethodReference</a></code> | <code>string</code> | Authenticated Method Reference. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.authenticatedMethodReference">authenticatedMethodReference</a></code> | <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a></code> | Authenticated Method Reference. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.authenticatedRoleName">authenticatedRoleName</a></code> | <code>string</code> | Name of authenticated role when creating role. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.identityPoolName">identityPoolName</a></code> | <code>string</code> | Name of the Identity Pool. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.openIdConnectProvider">openIdConnectProvider</a></code> | <code>aws-cdk-lib.aws_iam.IOpenIdConnectProvider</code> | Provide this or attempt will be made to import OpenIdConnectProvider using defaults. |
@@ -734,10 +734,10 @@ Required claims used when not passing any to this.createPrincipalForPool().
 ##### `authenticatedMethodReference`<sup>Optional</sup> <a name="authenticatedMethodReference" id="@catnekaise/actions-constructs.ActionsIdentityPoolBasicProps.property.authenticatedMethodReference"></a>
 
 ```typescript
-public readonly authenticatedMethodReference: string;
+public readonly authenticatedMethodReference: AuthenticatedMethodReference;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 Authenticated Method Reference.
 
@@ -813,7 +813,7 @@ const actionsIdentityPoolPrincipalBuilderOptions: ActionsIdentityPoolPrincipalBu
 | --- | --- | --- |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolPrincipalBuilderOptions.property.claimMapping">claimMapping</a></code> | <code><a href="#@catnekaise/actions-constructs.ClaimMapping">ClaimMapping</a></code> | *No description.* |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolPrincipalBuilderOptions.property.identityPoolId">identityPoolId</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolPrincipalBuilderOptions.property.amr">amr</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolPrincipalBuilderOptions.property.amr">amr</a></code> | <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a></code> | *No description.* |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolPrincipalBuilderOptions.property.openIdConnectProviderArn">openIdConnectProviderArn</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -841,10 +841,10 @@ public readonly identityPoolId: string;
 ##### `amr`<sup>Optional</sup> <a name="amr" id="@catnekaise/actions-constructs.ActionsIdentityPoolPrincipalBuilderOptions.property.amr"></a>
 
 ```typescript
-public readonly amr: string;
+public readonly amr: AuthenticatedMethodReference;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 ---
 
@@ -874,13 +874,13 @@ const actionsIdentityPoolProps: ActionsIdentityPoolProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.claimMapping">claimMapping</a></code> | <code><a href="#@catnekaise/actions-constructs.ClaimMapping">ClaimMapping</a></code> | *No description.* |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.principalClaimRequirements">principalClaimRequirements</a></code> | <code><a href="#@catnekaise/actions-constructs.PrincipalClaimRequirements">PrincipalClaimRequirements</a></code> | Required claims used when not passing any to this.createPrincipalForPool(). |
-| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.authenticatedMethodReference">authenticatedMethodReference</a></code> | <code>string</code> | Authenticated Method Reference. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.authenticatedMethodReference">authenticatedMethodReference</a></code> | <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a></code> | Authenticated Method Reference. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.authenticatedRoleName">authenticatedRoleName</a></code> | <code>string</code> | Name of authenticated role when creating role. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.identityPoolName">identityPoolName</a></code> | <code>string</code> | Name of the Identity Pool. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.openIdConnectProvider">openIdConnectProvider</a></code> | <code>aws-cdk-lib.aws_iam.IOpenIdConnectProvider</code> | Provide this or attempt will be made to import OpenIdConnectProvider using defaults. |
 | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.poolIdExportName">poolIdExportName</a></code> | <code>string</code> | Export name for the CfnOutput containing the Identity Pool ID. |
-| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.authenticatedRole">authenticatedRole</a></code> | <code>string</code> | Create authenticated role or use first role assigned in role mappings. |
-| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.roleResolution">roleResolution</a></code> | <code>string</code> | When no rule matches, request should be denied or use default authenticated role. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.authenticatedRole">authenticatedRole</a></code> | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolAuthenticatedRoleBehaviour">ActionsIdentityPoolAuthenticatedRoleBehaviour</a></code> | Create authenticated role or use first role assigned in role mappings. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.roleResolution">roleResolution</a></code> | <code><a href="#@catnekaise/actions-constructs.EnhancedFlowRoleResolution">EnhancedFlowRoleResolution</a></code> | When no rule matches, request should be denied or use default authenticated role. |
 
 ---
 
@@ -909,10 +909,10 @@ Required claims used when not passing any to this.createPrincipalForPool().
 ##### `authenticatedMethodReference`<sup>Optional</sup> <a name="authenticatedMethodReference" id="@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.authenticatedMethodReference"></a>
 
 ```typescript
-public readonly authenticatedMethodReference: string;
+public readonly authenticatedMethodReference: AuthenticatedMethodReference;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 Authenticated Method Reference.
 
@@ -975,10 +975,10 @@ Export name for the CfnOutput containing the Identity Pool ID.
 ##### `authenticatedRole`<sup>Required</sup> <a name="authenticatedRole" id="@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.authenticatedRole"></a>
 
 ```typescript
-public readonly authenticatedRole: string;
+public readonly authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.ActionsIdentityPoolAuthenticatedRoleBehaviour">ActionsIdentityPoolAuthenticatedRoleBehaviour</a>
 
 Create authenticated role or use first role assigned in role mappings.
 
@@ -987,10 +987,10 @@ Create authenticated role or use first role assigned in role mappings.
 ##### `roleResolution`<sup>Optional</sup> <a name="roleResolution" id="@catnekaise/actions-constructs.ActionsIdentityPoolProps.property.roleResolution"></a>
 
 ```typescript
-public readonly roleResolution: string;
+public readonly roleResolution: EnhancedFlowRoleResolution;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.EnhancedFlowRoleResolution">EnhancedFlowRoleResolution</a>
 
 When no rule matches, request should be denied or use default authenticated role.
 
@@ -1010,7 +1010,7 @@ const mappedClaim: MappedClaim = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@catnekaise/actions-constructs.MappedClaim.property.claim">claim</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.MappedClaim.property.claim">claim</a></code> | <code><a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a></code> | *No description.* |
 | <code><a href="#@catnekaise/actions-constructs.MappedClaim.property.tagName">tagName</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1018,10 +1018,10 @@ const mappedClaim: MappedClaim = { ... }
 ##### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.MappedClaim.property.claim"></a>
 
 ```typescript
-public readonly claim: string;
+public readonly claim: GhaClaim;
 ```
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -1200,12 +1200,12 @@ public readonly workflowRef: PrincipalClaimRequirementCondition;
 ##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.ActionsIdentityChainedPrincipalBuilder.claimEquals"></a>
 
 ```typescript
-public claimEquals(claim: string, value: string, additionalValues: string): ActionsIdentityChainedPrincipalBuilder
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityChainedPrincipalBuilder
 ```
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityChainedPrincipalBuilder.claimEquals.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -1224,12 +1224,12 @@ public claimEquals(claim: string, value: string, additionalValues: string): Acti
 ##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.ActionsIdentityChainedPrincipalBuilder.claimLike"></a>
 
 ```typescript
-public claimLike(claim: string, value: string, additionalValues: string): ActionsIdentityChainedPrincipalBuilder
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityChainedPrincipalBuilder
 ```
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityChainedPrincipalBuilder.claimLike.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -1266,18 +1266,18 @@ public createPrincipalAssumedBy(principal: IPrincipal): IPrincipal
 ##### `passesClaim` <a name="passesClaim" id="@catnekaise/actions-constructs.ActionsIdentityChainedPrincipalBuilder.passesClaim"></a>
 
 ```typescript
-public passesClaim(claim: string, additionalClaims: string): ActionsIdentityChainedPrincipalBuilder
+public passesClaim(claim: GhaClaim, additionalClaims: GhaClaim): ActionsIdentityChainedPrincipalBuilder
 ```
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityChainedPrincipalBuilder.passesClaim.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
 ###### `additionalClaims`<sup>Required</sup> <a name="additionalClaims" id="@catnekaise/actions-constructs.ActionsIdentityChainedPrincipalBuilder.passesClaim.parameter.additionalClaims"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -1346,20 +1346,20 @@ ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(claimMapping: ClaimMappi
 ##### `claim` <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilder.claim"></a>
 
 ```typescript
-public claim(value: string, additionalValues: string): ActionsIdentityIamResourcePathBuilder
+public claim(value: GhaClaim, additionalValues: GhaClaim): ActionsIdentityIamResourcePathBuilder
 ```
 
 Value must be a mapped claim.
 
 ###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilder.claim.parameter.value"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
 ###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilder.claim.parameter.additionalValues"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -1516,7 +1516,7 @@ public readonly iamResourcePath: ActionsIdentityIamResourcePathBuilder;
 ##### `createPrincipal` <a name="createPrincipal" id="@catnekaise/actions-constructs.ActionsIdentityPrincipalBuilder.createPrincipal"></a>
 
 ```typescript
-public createPrincipal(requirements: PrincipalClaimRequirements, amr?: string): IPrincipal
+public createPrincipal(requirements: PrincipalClaimRequirements, amr?: AuthenticatedMethodReference): IPrincipal
 ```
 
 ###### `requirements`<sup>Required</sup> <a name="requirements" id="@catnekaise/actions-constructs.ActionsIdentityPrincipalBuilder.createPrincipal.parameter.requirements"></a>
@@ -1527,7 +1527,7 @@ public createPrincipal(requirements: PrincipalClaimRequirements, amr?: string): 
 
 ###### `amr`<sup>Optional</sup> <a name="amr" id="@catnekaise/actions-constructs.ActionsIdentityPrincipalBuilder.createPrincipal.parameter.amr"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 ---
 
@@ -1544,7 +1544,7 @@ public createPrincipal(requirements: PrincipalClaimRequirements, amr?: string): 
 ```typescript
 import { ActionsIdentityPrincipalBuilder } from '@catnekaise/actions-constructs'
 
-ActionsIdentityPrincipalBuilder.create(claimMapping: ClaimMapping, identityPoolId: string, amr?: string, openIdConnectProviderArn?: string)
+ActionsIdentityPrincipalBuilder.create(claimMapping: ClaimMapping, identityPoolId: string, amr?: AuthenticatedMethodReference, openIdConnectProviderArn?: string)
 ```
 
 ###### `claimMapping`<sup>Required</sup> <a name="claimMapping" id="@catnekaise/actions-constructs.ActionsIdentityPrincipalBuilder.create.parameter.claimMapping"></a>
@@ -1561,7 +1561,7 @@ ActionsIdentityPrincipalBuilder.create(claimMapping: ClaimMapping, identityPoolI
 
 ###### `amr`<sup>Optional</sup> <a name="amr" id="@catnekaise/actions-constructs.ActionsIdentityPrincipalBuilder.create.parameter.amr"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
 
 ---
 
@@ -1591,18 +1591,18 @@ ActionsIdentityPrincipalBuilder.create(claimMapping: ClaimMapping, identityPoolI
 ```typescript
 import { ClaimMapping } from '@catnekaise/actions-constructs'
 
-ClaimMapping.fromClaimsAsTagNames(claim: string, additionalClaims: string)
+ClaimMapping.fromClaimsAsTagNames(claim: GhaClaim, additionalClaims: GhaClaim)
 ```
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ClaimMapping.fromClaimsAsTagNames.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
 ###### `additionalClaims`<sup>Required</sup> <a name="additionalClaims" id="@catnekaise/actions-constructs.ClaimMapping.fromClaimsAsTagNames.parameter.additionalClaims"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -1625,18 +1625,18 @@ ClaimMapping.fromCustomTagNames(claims: {[ key: string ]: string})
 ```typescript
 import { ClaimMapping } from '@catnekaise/actions-constructs'
 
-ClaimMapping.fromDefaults(claim: string, additionalClaims: string)
+ClaimMapping.fromDefaults(claim: GhaClaim, additionalClaims: GhaClaim)
 ```
 
 ###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ClaimMapping.fromDefaults.parameter.claim"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
 ###### `additionalClaims`<sup>Required</sup> <a name="additionalClaims" id="@catnekaise/actions-constructs.ClaimMapping.fromDefaults.parameter.additionalClaims"></a>
 
-- *Type:* string
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
 
 ---
 
@@ -1659,4 +1659,239 @@ public readonly mappedClaims: MappedClaim[];
 ---
 
 
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### ActionsIdentityPoolAuthenticatedRoleBehaviour <a name="ActionsIdentityPoolAuthenticatedRoleBehaviour" id="@catnekaise/actions-constructs.ActionsIdentityPoolAuthenticatedRoleBehaviour"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE">CREATE</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED">USE_FIRST_ASSIGNED</a></code> | *No description.* |
+
+---
+
+##### `CREATE` <a name="CREATE" id="@catnekaise/actions-constructs.ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE"></a>
+
+---
+
+
+##### `USE_FIRST_ASSIGNED` <a name="USE_FIRST_ASSIGNED" id="@catnekaise/actions-constructs.ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED"></a>
+
+---
+
+
+### AuthenticatedMethodReference <a name="AuthenticatedMethodReference" id="@catnekaise/actions-constructs.AuthenticatedMethodReference"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference.AUTHENTICATED">AUTHENTICATED</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference.HOST">HOST</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference.ARN">ARN</a></code> | *No description.* |
+
+---
+
+##### `AUTHENTICATED` <a name="AUTHENTICATED" id="@catnekaise/actions-constructs.AuthenticatedMethodReference.AUTHENTICATED"></a>
+
+---
+
+
+##### `HOST` <a name="HOST" id="@catnekaise/actions-constructs.AuthenticatedMethodReference.HOST"></a>
+
+---
+
+
+##### `ARN` <a name="ARN" id="@catnekaise/actions-constructs.AuthenticatedMethodReference.ARN"></a>
+
+---
+
+
+### EnhancedFlowRoleResolution <a name="EnhancedFlowRoleResolution" id="@catnekaise/actions-constructs.EnhancedFlowRoleResolution"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.EnhancedFlowRoleResolution.DENY">DENY</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.EnhancedFlowRoleResolution.USE_DEFAULT_AUTHENTICATED_ROLE">USE_DEFAULT_AUTHENTICATED_ROLE</a></code> | *No description.* |
+
+---
+
+##### `DENY` <a name="DENY" id="@catnekaise/actions-constructs.EnhancedFlowRoleResolution.DENY"></a>
+
+---
+
+
+##### `USE_DEFAULT_AUTHENTICATED_ROLE` <a name="USE_DEFAULT_AUTHENTICATED_ROLE" id="@catnekaise/actions-constructs.EnhancedFlowRoleResolution.USE_DEFAULT_AUTHENTICATED_ROLE"></a>
+
+---
+
+
+### GhaClaim <a name="GhaClaim" id="@catnekaise/actions-constructs.GhaClaim"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.JTI">JTI</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.SUB">SUB</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.ENVIRONMENT">ENVIRONMENT</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.AUD">AUD</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.REF">REF</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.SHA">SHA</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.REPOSITORY">REPOSITORY</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.REPOSITORY_OWNER">REPOSITORY_OWNER</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.ACTOR_ID">ACTOR_ID</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.REPOSITORY_VISIBILITY">REPOSITORY_VISIBILITY</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.REPOSITORY_ID">REPOSITORY_ID</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.REPOSITORY_OWNER_ID">REPOSITORY_OWNER_ID</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.RUN_ID">RUN_ID</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.RUN_NUMBER">RUN_NUMBER</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.RUN_ATTEMPT">RUN_ATTEMPT</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.RUNNER_ENVIRONMENT">RUNNER_ENVIRONMENT</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.ACTOR">ACTOR</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.WORKFLOW">WORKFLOW</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.HEAD_REF">HEAD_REF</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.BASE_REF">BASE_REF</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.EVENT_NAME">EVENT_NAME</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.REF_TYPE">REF_TYPE</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.JOB_WORKFLOW_REF">JOB_WORKFLOW_REF</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.WORKFLOW_REF">WORKFLOW_REF</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.ISS">ISS</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GhaClaim.ENTERPRISE">ENTERPRISE</a></code> | *No description.* |
+
+---
+
+##### `JTI` <a name="JTI" id="@catnekaise/actions-constructs.GhaClaim.JTI"></a>
+
+---
+
+
+##### `SUB` <a name="SUB" id="@catnekaise/actions-constructs.GhaClaim.SUB"></a>
+
+---
+
+
+##### `ENVIRONMENT` <a name="ENVIRONMENT" id="@catnekaise/actions-constructs.GhaClaim.ENVIRONMENT"></a>
+
+---
+
+
+##### `AUD` <a name="AUD" id="@catnekaise/actions-constructs.GhaClaim.AUD"></a>
+
+---
+
+
+##### `REF` <a name="REF" id="@catnekaise/actions-constructs.GhaClaim.REF"></a>
+
+---
+
+
+##### `SHA` <a name="SHA" id="@catnekaise/actions-constructs.GhaClaim.SHA"></a>
+
+---
+
+
+##### `REPOSITORY` <a name="REPOSITORY" id="@catnekaise/actions-constructs.GhaClaim.REPOSITORY"></a>
+
+---
+
+
+##### `REPOSITORY_OWNER` <a name="REPOSITORY_OWNER" id="@catnekaise/actions-constructs.GhaClaim.REPOSITORY_OWNER"></a>
+
+---
+
+
+##### `ACTOR_ID` <a name="ACTOR_ID" id="@catnekaise/actions-constructs.GhaClaim.ACTOR_ID"></a>
+
+---
+
+
+##### `REPOSITORY_VISIBILITY` <a name="REPOSITORY_VISIBILITY" id="@catnekaise/actions-constructs.GhaClaim.REPOSITORY_VISIBILITY"></a>
+
+---
+
+
+##### `REPOSITORY_ID` <a name="REPOSITORY_ID" id="@catnekaise/actions-constructs.GhaClaim.REPOSITORY_ID"></a>
+
+---
+
+
+##### `REPOSITORY_OWNER_ID` <a name="REPOSITORY_OWNER_ID" id="@catnekaise/actions-constructs.GhaClaim.REPOSITORY_OWNER_ID"></a>
+
+---
+
+
+##### `RUN_ID` <a name="RUN_ID" id="@catnekaise/actions-constructs.GhaClaim.RUN_ID"></a>
+
+---
+
+
+##### `RUN_NUMBER` <a name="RUN_NUMBER" id="@catnekaise/actions-constructs.GhaClaim.RUN_NUMBER"></a>
+
+---
+
+
+##### `RUN_ATTEMPT` <a name="RUN_ATTEMPT" id="@catnekaise/actions-constructs.GhaClaim.RUN_ATTEMPT"></a>
+
+---
+
+
+##### `RUNNER_ENVIRONMENT` <a name="RUNNER_ENVIRONMENT" id="@catnekaise/actions-constructs.GhaClaim.RUNNER_ENVIRONMENT"></a>
+
+---
+
+
+##### `ACTOR` <a name="ACTOR" id="@catnekaise/actions-constructs.GhaClaim.ACTOR"></a>
+
+---
+
+
+##### `WORKFLOW` <a name="WORKFLOW" id="@catnekaise/actions-constructs.GhaClaim.WORKFLOW"></a>
+
+---
+
+
+##### `HEAD_REF` <a name="HEAD_REF" id="@catnekaise/actions-constructs.GhaClaim.HEAD_REF"></a>
+
+---
+
+
+##### `BASE_REF` <a name="BASE_REF" id="@catnekaise/actions-constructs.GhaClaim.BASE_REF"></a>
+
+---
+
+
+##### `EVENT_NAME` <a name="EVENT_NAME" id="@catnekaise/actions-constructs.GhaClaim.EVENT_NAME"></a>
+
+---
+
+
+##### `REF_TYPE` <a name="REF_TYPE" id="@catnekaise/actions-constructs.GhaClaim.REF_TYPE"></a>
+
+---
+
+
+##### `JOB_WORKFLOW_REF` <a name="JOB_WORKFLOW_REF" id="@catnekaise/actions-constructs.GhaClaim.JOB_WORKFLOW_REF"></a>
+
+---
+
+
+##### `WORKFLOW_REF` <a name="WORKFLOW_REF" id="@catnekaise/actions-constructs.GhaClaim.WORKFLOW_REF"></a>
+
+---
+
+
+##### `ISS` <a name="ISS" id="@catnekaise/actions-constructs.GhaClaim.ISS"></a>
+
+---
+
+
+##### `ENTERPRISE` <a name="ENTERPRISE" id="@catnekaise/actions-constructs.GhaClaim.ENTERPRISE"></a>
+
+---
 

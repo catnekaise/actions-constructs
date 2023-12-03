@@ -2,7 +2,14 @@ import * as cdk from 'aws-cdk-lib';
 import { Match, Template } from 'aws-cdk-lib/assertions';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import { Role } from 'aws-cdk-lib/aws-iam';
-import { ActionsIdentityPool, ActionsIdentityPoolProps, ClaimMapping } from '../src';
+import {
+  ActionsIdentityPool,
+  ActionsIdentityPoolAuthenticatedRoleBehaviour,
+  ActionsIdentityPoolProps,
+  AuthenticatedMethodReference,
+  ClaimMapping,
+  GhaClaim,
+} from '../src';
 
 describe('ActionsIdentityPool - Common', () => {
 
@@ -11,9 +18,9 @@ describe('ActionsIdentityPool - Common', () => {
     const stack = new cdk.Stack(new cdk.App(), 'TestStack');
 
     new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id'),
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID),
       identityPoolName: 'ActionsPoolTest',
-      authenticatedRole: 'useFirstAssigned',
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['foo'] },
     });
 
@@ -25,8 +32,8 @@ describe('ActionsIdentityPool - Common', () => {
 
     template.hasResourceProperties('AWS::Cognito::IdentityPoolPrincipalTag', {
       PrincipalTags: {
-        repo: 'repository',
-        ownerId: 'repository_owner_id',
+        repo: GhaClaim.REPOSITORY,
+        ownerId: GhaClaim.REPOSITORY_OWNER_ID,
       },
     });
 
@@ -38,10 +45,10 @@ describe('ActionsIdentityPool - Common', () => {
 
     new ActionsIdentityPool(stack, 'Pool', {
       claimMapping: ClaimMapping.fromClaimsWithTagName({
-        repository: 'repository',
+        repository: GhaClaim.REPOSITORY,
         repository_owner_id: 'test',
       }),
-      authenticatedRole: 'useFirstAssigned',
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['foo'] },
     });
 
@@ -51,8 +58,8 @@ describe('ActionsIdentityPool - Common', () => {
 
     template.hasResourceProperties('AWS::Cognito::IdentityPoolPrincipalTag', {
       PrincipalTags: {
-        repository: 'repository',
-        test: 'repository_owner_id',
+        repository: GhaClaim.REPOSITORY,
+        test: GhaClaim.REPOSITORY_OWNER_ID,
       },
     });
 
@@ -65,10 +72,10 @@ describe('ActionsIdentityPool - Common', () => {
     const pool = new ActionsIdentityPool(stack, 'Pool', {
       claimMapping: ClaimMapping.fromClaimsWithTagName({
         // Attempt assign two different claims to same tag name
-        repository: 'repository',
-        repository_owner_id: 'repository',
+        repository: GhaClaim.REPOSITORY,
+        repository_owner_id: GhaClaim.REPOSITORY,
       }),
-      authenticatedRole: 'useFirstAssigned',
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['foo'] },
     });
 
@@ -87,8 +94,8 @@ describe('ActionsIdentityPool - Common', () => {
     });
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner', 'environment', 'enterprise'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER, GhaClaim.ENVIRONMENT, GhaClaim.ENTERPRISE),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['foo'] },
     });
 
@@ -97,7 +104,7 @@ describe('ActionsIdentityPool - Common', () => {
     });
 
     for (let i = 0; i < 25; i++) {
-      pool.assignRoleWhenClaimEquals(role, 'repository', 'test/test' + i);
+      pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY, 'test/test' + i);
     }
 
     expect(pool.node.metadata.filter(x => x.type === 'aws:cdk:error')).toHaveLength(1);
@@ -109,13 +116,13 @@ describe('ActionsIdentityPool - Common', () => {
     const stack = new cdk.Stack(new cdk.App(), 'TestStack');
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id', 'repository_owner'),
-      authenticatedRole: 'create',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID, GhaClaim.REPOSITORY_OWNER),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE,
       authenticatedRoleName: 'DefaultAuthRole',
       principalClaimRequirements: { repositoryOwner: ['foo'] },
     });
 
-    pool.assignRoleWhenClaimEquals(pool.defaultAuthenticatedRole as iam.Role, 'repository', 'catnekaise/example-repo');
+    pool.assignRoleWhenClaimEquals(pool.defaultAuthenticatedRole as iam.Role, GhaClaim.REPOSITORY, 'catnekaise/example-repo');
 
     const template = Template.fromStack(stack);
 
@@ -132,8 +139,8 @@ describe('ActionsIdentityPool - Common', () => {
     const stack = new cdk.Stack(new cdk.App(), 'TestStack');
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id', 'repository_owner'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID, GhaClaim.REPOSITORY_OWNER),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
     });
 
@@ -144,7 +151,7 @@ describe('ActionsIdentityPool - Common', () => {
 
     expect(pool.defaultAuthenticatedRole).toBeFalsy();
 
-    pool.assignRoleWhenClaimEquals(role, 'repository', 'catnekaise/actions-constructs');
+    pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY, 'catnekaise/actions-constructs');
 
     expect(pool.defaultAuthenticatedRole).toBeTruthy();
 
@@ -157,13 +164,13 @@ describe('ActionsIdentityPool - Common', () => {
       claimMapping: ClaimMapping.fromClaimsWithTagName({
         // Attempt assign two different claims to same tag name
         repository: 'test',
-        repository_owner: 'repository_owner',
+        repository_owner: GhaClaim.REPOSITORY_OWNER,
       }),
-      authenticatedRole: 'useFirstAssigned',
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
     });
 
-    expect(pool.util.iamResourcePath.claim('repository').toString()).toEqual('${aws:principalTag/test}');
+    expect(pool.util.iamResourcePath.claim(GhaClaim.REPOSITORY).toString()).toEqual('${aws:principalTag/test}');
 
     expect(pool.util.chainedPrincipal.createConditions()).toBeTruthy();
 
@@ -178,8 +185,8 @@ describe('ActionsIdentityPool - Trust Policies', () => {
     const stack = new cdk.Stack(new cdk.App(), 'TestStack');
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id', 'repository_owner'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID, GhaClaim.REPOSITORY_OWNER),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: {
         repository: {
           condition: 'StringEquals',
@@ -232,8 +239,14 @@ describe('ActionsIdentityPool - Trust Policies', () => {
     const stack = new cdk.Stack(new cdk.App(), 'TestStack');
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner', 'environment', 'enterprise', 'job_workflow_ref', 'runner_environment'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(
+        GhaClaim.REPOSITORY,
+        GhaClaim.REPOSITORY_OWNER,
+        GhaClaim.ENVIRONMENT, GhaClaim.ENTERPRISE,
+        GhaClaim.JOB_WORKFLOW_REF,
+        GhaClaim.RUNNER_ENVIRONMENT,
+      ),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
 
     });
@@ -302,8 +315,8 @@ describe('ActionsIdentityPool - Trust Policies', () => {
     const stack = new cdk.Stack(new cdk.App(), 'TestStack');
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner', 'enterprise'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER, GhaClaim.ENTERPRISE),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
 
     });
@@ -323,10 +336,10 @@ describe('ActionsIdentityPool - Trust Policies', () => {
     const stack = new cdk.Stack(new cdk.App(), 'TestStack');
 
     new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id', 'repository_owner'),
-      authenticatedRole: 'create',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID, GhaClaim.REPOSITORY_OWNER),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE,
       authenticatedRoleName: 'role',
-      authenticatedMethodReference: 'authenticated',
+      authenticatedMethodReference: AuthenticatedMethodReference.AUTHENTICATED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
     });
 
@@ -373,10 +386,10 @@ describe('ActionsIdentityPool - Trust Policies', () => {
     });
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id', 'repository_owner'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID, GhaClaim.REPOSITORY_OWNER),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       authenticatedRoleName: 'role',
-      authenticatedMethodReference: 'arn',
+      authenticatedMethodReference: AuthenticatedMethodReference.ARN,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
     });
 
@@ -427,9 +440,9 @@ describe('ActionsIdentityPool - Trust Policies', () => {
     });
 
     new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner'),
-      authenticatedRole: 'create',
-      authenticatedMethodReference: 'host',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE,
+      authenticatedMethodReference: AuthenticatedMethodReference.HOST,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
     });
 
@@ -480,9 +493,9 @@ describe('ActionsIdentityPool - Rules', () => {
     });
 
     const props: ActionsIdentityPoolProps = {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner', 'environment', 'enterprise'),
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER, GhaClaim.ENVIRONMENT, GhaClaim.ENTERPRISE),
       openIdConnectProvider: undefined,
-      authenticatedRole: 'useFirstAssigned',
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
     };
 
@@ -492,7 +505,7 @@ describe('ActionsIdentityPool - Rules', () => {
       assumedBy: pool.createPrincipalForPool(),
     });
 
-    pool.assignRoleWhenClaimEquals(role, 'repository', 'test/test');
+    pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY, 'test/test');
 
     const template = Template.fromStack(stack);
 
@@ -504,7 +517,7 @@ describe('ActionsIdentityPool - Rules', () => {
           RulesConfiguration: {
             Rules: [
               {
-                Claim: 'repository',
+                Claim: GhaClaim.REPOSITORY,
                 MatchType: 'Equals',
                 RoleARN: Match.anyValue(),
                 Value: 'test/test',
@@ -527,8 +540,8 @@ describe('ActionsIdentityPool - Rules', () => {
     });
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner', 'environment', 'enterprise'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER, GhaClaim.ENVIRONMENT, GhaClaim.ENTERPRISE),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
     });
 
@@ -536,8 +549,8 @@ describe('ActionsIdentityPool - Rules', () => {
       assumedBy: pool.createPrincipalForPool(),
     });
 
-    pool.assignRoleWhenClaimEquals(role, 'repository', 'test/test');
-    pool.assignRoleWhenClaimContains(role, 'sub', 'repository_owner:test:environment:dev');
+    pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY, 'test/test');
+    pool.assignRoleWhenClaimContains(role, GhaClaim.SUB, 'repository_owner:test:environment:dev');
 
     const template = Template.fromStack(stack);
 
@@ -549,7 +562,7 @@ describe('ActionsIdentityPool - Rules', () => {
           RulesConfiguration: {
             Rules: Match.arrayWith([
               {
-                Claim: 'repository',
+                Claim: GhaClaim.REPOSITORY,
                 MatchType: 'Equals',
                 RoleARN: Match.anyValue(),
                 Value: 'test/test',
@@ -578,8 +591,8 @@ describe('ActionsIdentityPool - Rules', () => {
     });
 
     const pool = new ActionsIdentityPool(stack, 'Pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner', 'environment', 'enterprise'),
-      authenticatedRole: 'useFirstAssigned',
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER, GhaClaim.ENVIRONMENT, GhaClaim.ENTERPRISE),
+      authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
       principalClaimRequirements: { repositoryOwner: ['catnekaise'] },
 
     });
@@ -588,7 +601,7 @@ describe('ActionsIdentityPool - Rules', () => {
       assumedBy: pool.createPrincipalForPool(),
     });
 
-    pool.assignRoleWhenClaimStartsWith(role, 'sub', 'repository_owner:test:environment:dev');
+    pool.assignRoleWhenClaimStartsWith(role, GhaClaim.SUB, 'repository_owner:test:environment:dev');
 
     const template = Template.fromStack(stack);
 

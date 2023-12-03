@@ -42,10 +42,10 @@ const role = pool.authenticatedRole;
 const bucket = new s3.Bucket(this, 'Bucket', { name: 'my-bucket' });
 
 // permission granted at object prefix = /${aws:principalTag/repo}/*
-bucket.grantRead(role, pool.util.iamResourcePath.value('repository', '*'));
+bucket.grantRead(role, pool.util.iamResourcePath.value(GhaClaim.REPOSITORY, '*'));
 
 // resource string = arn:aws:s3:::my-bucket/${aws:principalTag/repo}/*
-const value = pool.util.iamResourcePath.text(bucket.bucketArn).claim('repository').text('*').toString();
+const value = pool.util.iamResourcePath.text(bucket.bucketArn).claim(GhaClaim.REPOSITORY).text('*').toString();
 
 role.addToPolicy(new iam.PolicyStatement({
   effect: Effect.ALLOW,
@@ -75,7 +75,7 @@ declare const role: iam.Role;
 const bucket = new s3.Bucket(this, 'Bucket', { name: 'my-bucket' });
 
 // permission granted at object prefix = /${aws:principalTag/repo}/*
-bucket.grantRead(role, builder.value('repository', '*'));
+bucket.grantRead(role, builder.value(GhaClaim.REPOSITORY, '*'));
 ```
 
 ### Claim, Value, Text
@@ -104,16 +104,16 @@ declare const role: iam.Role;
 const bucket = new s3.Bucket(this, 'Bucket', { name: 'my-bucket' });
 
 // permission granted at object prefix = /${aws:principalTag/repo}/*
-bucket.grantRead(role, builder.claim('repository').text('*'));
+bucket.grantRead(role, builder.claim(GhaClaim.REPOSITORY).text('*'));
 
 // permission granted at object prefix = /${aws:principalTag/repo}/*
-bucket.grantRead(role, builder.value('repository', '*'));
+bucket.grantRead(role, builder.value(GhaClaim.REPOSITORY, '*'));
 
 // permission granted at object prefix = /repository/*
 bucket.grantRead(role, builder.text('repository', '*'));
 
 // Throws an error as "environment" was not a claim mapped in "ClaimMapping"
-bucket.grantRead(role, builder.claim('environment').text('*'));
+bucket.grantRead(role, builder.claim(GhaClaim.ENVIRONMENT).text('*'));
 
 // Does NOT throws an error as .text() does not care about "ClaimMapping"
 // permission granted at object prefix = /environment/*
@@ -136,18 +136,18 @@ const claimMapping = ClaimMapping.fromClaimsWithTagName({
 let builder = ActionsIdentityIamResourcePathBuilder.fromClaimMapping(claimMapping);
 
 // builder string value = ''
-builder.claim('repository');
+builder.claim(GhaClaim.REPOSITORY);
 
 // builder string value = '${aws:principalTag/repo}'
-builder = builder.claim('repository');
+builder = builder.claim(GhaClaim.REPOSITORY);
 
 // builder string value = '${aws:principalTag/repo}'
 // builder2 string value = '${aws:principalTag/repo}/foo'
 let builder2 = builder.text('foo');
 
 // builder string value = '${aws:principalTag/repo}/${aws:principalTag/user}'
-builder = builder.claim('actor');
+builder = builder.claim(GhaClaim.ACTOR);
 
 // builder2 string value = '${aws:principalTag/repo}/foo/${aws:principalTag/user}'
-builder2 = builder2.claim('actor');
+builder2 = builder2.claim(GhaClaim.ACTOR);
 ```

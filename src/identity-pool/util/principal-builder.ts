@@ -46,8 +46,8 @@ export class ActionsIdentityPrincipalBuilder {
     };
 
     let requirementsApplied = 0;
-    const equalityClaims: GhaClaim[] = ['repository_owner', 'actor', 'actor_id'];
-    const conditionClaims: GhaClaim[] = ['job_workflow_ref', 'workflow_ref', 'repository', 'environment'];
+    const equalityClaims: GhaClaim[] = [GhaClaim.REPOSITORY_OWNER, GhaClaim.ACTOR, GhaClaim.ACTOR_ID];
+    const conditionClaims: GhaClaim[] = [GhaClaim.JOB_WORKFLOW_REF, GhaClaim.WORKFLOW_REF, GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT];
 
     const useClaims: { [key: string]: PrincipalClaimRequirementCondition } = {};
 
@@ -138,9 +138,9 @@ export class ActionsIdentityPrincipalBuilder {
     }
 
     switch (useAmr) {
-      case 'authenticated':
+      case AuthenticatedMethodReference.AUTHENTICATED:
         return 'authenticated';
-      case 'arn':
+      case AuthenticatedMethodReference.ARN:
         if (!this.options.openIdConnectProviderArn) {
           throw new Error('Cannot set arn as it has not been provided to builder');
         }

@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
-import { ActionsIdentityPoolBasic, ClaimMapping } from '../src';
+import { ActionsIdentityPoolBasic, ClaimMapping, GhaClaim } from '../src';
 
 describe('ActionsIdentityPoolBasic', () => {
 
@@ -9,7 +9,7 @@ describe('ActionsIdentityPoolBasic', () => {
     const stack = new cdk.Stack(app, 'TestStack');
 
     const pool = new ActionsIdentityPoolBasic(stack, 'pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id'),
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID),
       principalClaimRequirements: {
         repository: {
           condition: 'StringLike',
@@ -22,8 +22,8 @@ describe('ActionsIdentityPoolBasic', () => {
 
     template.hasResourceProperties('AWS::Cognito::IdentityPoolPrincipalTag', {
       PrincipalTags: {
-        repo: 'repository',
-        ownerId: 'repository_owner_id',
+        repo: GhaClaim.REPOSITORY,
+        ownerId: GhaClaim.REPOSITORY_OWNER_ID,
       },
     });
 
@@ -82,7 +82,7 @@ describe('ActionsIdentityPoolBasic', () => {
     stack.node.setContext('@catnekaise/actions-identity-pool:enterpriseSlug', 'fake-enterprise');
 
     new ActionsIdentityPoolBasic(stack, 'pool', {
-      claimMapping: ClaimMapping.fromDefaults('repository', 'repository_owner_id'),
+      claimMapping: ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_OWNER_ID),
       identityPoolName: 'ActionsPoolTest',
       principalClaimRequirements: {
         repository: {

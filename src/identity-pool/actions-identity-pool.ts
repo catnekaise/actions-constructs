@@ -4,18 +4,24 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 import { ActionsIdentityPoolBase, ActionsIdentityPoolBaseProps } from './base-identity-pool';
 import { GhaClaim } from './claims';
+import { AuthenticatedMethodReference, EnhancedFlowRoleResolution } from './types';
+
+export enum ActionsIdentityPoolAuthenticatedRoleBehaviour {
+  CREATE = 'create',
+  USE_FIRST_ASSIGNED = 'useFirstAssigned',
+}
 
 export interface ActionsIdentityPoolProps extends ActionsIdentityPoolBaseProps {
 
   /**
    * Create authenticated role or use first role assigned in role mappings
    */
-  readonly authenticatedRole: 'create' | 'useFirstAssigned';
+  readonly authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour;
 
   /**
    * When no rule matches, request should be denied or use default authenticated role
    */
-  readonly roleResolution?: 'deny' | 'defaultAuthenticatedRole';
+  readonly roleResolution?: EnhancedFlowRoleResolution;
 }
 
 export class ActionsIdentityPool extends ActionsIdentityPoolBase {
@@ -28,9 +34,9 @@ export class ActionsIdentityPool extends ActionsIdentityPoolBase {
     super(scope, id, props);
 
 
-    if (props.authenticatedRole === 'create') {
+    if (props.authenticatedRole === ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE) {
       this.authenticatedRole = new iam.Role(this, 'AuthenticatedRole', {
-        assumedBy: this.createPrincipalForPool(this.props.principalClaimRequirements, 'authenticated'),
+        assumedBy: this.createPrincipalForPool(this.props.principalClaimRequirements, AuthenticatedMethodReference.AUTHENTICATED),
         roleName: this.props.authenticatedRoleName,
       });
     }
@@ -94,7 +100,7 @@ export class ActionsIdentityPool extends ActionsIdentityPoolBase {
         },
         roleMappings: {
           oidc: {
-            ambiguousRoleResolution: this.props?.roleResolution === 'defaultAuthenticatedRole' ? 'AuthenticatedRole' : 'Deny',
+            ambiguousRoleResolution: this.props?.roleResolution === EnhancedFlowRoleResolution.USE_DEFAULT_AUTHENTICATED_ROLE ? 'AuthenticatedRole' : 'Deny',
             type: 'Rules',
             identityProvider: this.openIdConnectProvider.openIdConnectProviderArn,
             rulesConfiguration: {

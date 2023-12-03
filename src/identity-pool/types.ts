@@ -1,4 +1,13 @@
-export type AuthenticatedMethodReference = 'authenticated' | 'host' | 'arn';
+export enum AuthenticatedMethodReference {
+  AUTHENTICATED = 'authenticated',
+  HOST = 'host',
+  ARN = 'arn'
+}
+
+export enum EnhancedFlowRoleResolution {
+  DENY = 'deny', // Default
+  USE_DEFAULT_AUTHENTICATED_ROLE = 'defaultAuthenticatedRole',
+}
 
 export interface PrincipalClaimRequirementCondition {
   readonly condition: 'StringEquals' | 'StringLike';

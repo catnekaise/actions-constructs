@@ -6,7 +6,7 @@ See examples below and view source.
 
 ```typescript
 const pool = new ActionsIdentityPool(this, 'Pool', {
-  claimMapping: ClaimMapping.fromClaims('repository', 'environment'),
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT),
 });
 
 const role = new iam.Role(stack, 'Role', {
@@ -20,12 +20,12 @@ const role = new iam.Role(stack, 'Role', {
   }),
 });
 
-pool.assignRoleWhenClaimStartsWith(role, 'repository', 'catnekaise/');
+pool.assignRoleWhenClaimStartsWith(role, GhaClaim.REPOSITORY, 'catnekaise/');
 
 const builder = pool.util.chainedPrincipal
-  .passesClaim('repository', 'environment', 'runner_environment', 'sha')
-  .claimEquals('environment', 'dev', 'test')
-  .claimLike('repository', 'catnekaise/*');
+  .passesClaim(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT, GhaClaim.RUNNER_ENVIRONMENT, GhaClaim.SHA)
+  .claimEquals(GhaClaim.ENVIRONMENT, 'dev', 'test')
+  .claimLike(GhaClaim.REPOSITORY, 'catnekaise/*');
 
 const principal = builder.createPrincipalAssumedBy(role);
 
@@ -40,12 +40,12 @@ Attempting to use claims in the builder that was not mapped in the identity pool
 
 ```typescript
 const pool = new ActionsIdentityPool(this, 'Pool', {
-  claimMapping: ClaimMapping.fromClaims('repository', 'environment'),
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT),
 });
 
 // Error will be thrown as the ActionsIdentityPool was not configured to map the claim "actor".
 const builder = pool.util.chainedPrincipal
-  .claimEquals('actor', 'djonser');
+  .claimEquals(GhaClaim.ACTOR, 'djonser');
 
 ```
 
@@ -99,7 +99,7 @@ declare const pool: ActionsIdentityPool;
 declare const role: iam.Role;
 
 const builder = pool.util.chainedPrincipal
-  .claimLike('repository', 'catnekaise/*');
+  .claimLike(GhaClaim.REPOSITORY, 'catnekaise/*');
 
 const conditions = builder.createConditions() as ChainedPrincipalConditions;
 
@@ -143,7 +143,7 @@ const openIdConnectProvider = iam.OpenIdConnectProvider
 
 const pool = new ActionsIdentityPool(stack, 'Pool', {
   openIdConnectProvider: openIdConnectProvider,
-  claimMapping: ClaimMapping.fromClaims('repository', 'environment'),
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT),
   authenticatedRole: 'create',
   principalClaimRequirements: {
     repository: {
@@ -170,14 +170,14 @@ role.addToPolicy(new iam.PolicyStatement({
   resources: [`arn:aws:iam::${devAccount}:role/${deploymentRoleName}`],
 }));
 
-pool.assignRoleWhenClaimStartsWith(role, 'sub', 'repo:catnekaise/infra.network:environment:dev');
+pool.assignRoleWhenClaimStartsWith(role, GhaClaim.SUB, 'repo:catnekaise/infra.network:environment:dev');
 
 const deploymentRole = new iam.Role(devStack, 'DeploymentRole', {
   roleName: deploymentRoleName,
   assumedBy: pool.util.chainedPrincipal
-    .passesClaim('repository', 'environment', 'job_workflow_ref', 'runner_environment')
-    .claimEquals('repository', 'catnekaise/infra.network')
-    .claimEquals('environment', 'dev')
+    .passesClaim(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT, GhaClaim.JOB_WORKFLOW_REF, GhaClaim.RUNNER_ENVIRONMENT)
+    .claimEquals(GhaClaim.REPOSITORY, 'catnekaise/infra.network')
+    .claimEquals(GhaClaim.ENVIRONMENT, 'dev')
     .createPrincipalAssumedBy(role),
 });
 
@@ -195,17 +195,17 @@ deploymentRole.addToPolicy(new iam.PolicyStatement({
 // Using tag name abbrevations included in this library
 import { ActionsIdentityChainedPrincipalBuilder, ClaimMapping } from '@catnekaise/actions-constructs';
 
-const builder = ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(ClaimMapping.fromDefaults('repository', 'environment'))
-  .claimEquals('repository', 'catnekaise/infra.network')
-  .claimEquals('environment', 'dev');
+const builder = ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT))
+  .claimEquals(GhaClaim.REPOSITORY, 'catnekaise/infra.network')
+  .claimEquals(GhaClaim.ENVIRONMENT, 'dev');
 
 // Specifying own tag name for each claim
 const builder2 = ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(ClaimMapping.fromClaimsWithTagName({
   repository: 'repo',
   environment: 'env',
 }))
-  .claimEquals('repository', 'catnekaise/infra.network')
-  .claimEquals('environment', 'dev');
+  .claimEquals(GhaClaim.REPOSITORY, 'catnekaise/infra.network')
+  .claimEquals(GhaClaim.ENVIRONMENT, 'dev');
 
 const app = new cdk.App();
 const stack = new cdk.Stack(app, 'Stack', {
@@ -224,9 +224,9 @@ const deploymentRole = new iam.Role(stack, 'DeploymentRole', {
 ### Cross Account - Specific Identity Pool
 
 ```typescript
-const builder = ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(ClaimMapping.fromDefaults('repository', 'environment'))
-  .claimEquals('repository', 'catnekaise/infra.network')
-  .claimEquals('environment', 'dev')
+const builder = ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT))
+  .claimEquals(GhaClaim.REPOSITORY, 'catnekaise/infra.network')
+  .claimEquals(GhaClaim.ENVIRONMENT, 'dev')
   .requireIdentityPoolId('eu-west-1:11111111-example');
 
 const deploymentRole = new iam.Role(stack, 'DeploymentRole', {
@@ -239,9 +239,9 @@ const deploymentRole = new iam.Role(stack, 'DeploymentRole', {
 External Id condition can be added using the builder regardless if cross account or not.
 
 ```typescript
-const builder = ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(ClaimMapping.fromDefaults('repository', 'environment'))
-  .claimEquals('repository', 'catnekaise/infra.network')
-  .claimEquals('environment', 'dev')
+const builder = ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT))
+  .claimEquals(GhaClaim.REPOSITORY, 'catnekaise/infra.network')
+  .claimEquals(GhaClaim.ENVIRONMENT, 'dev')
   .requireIdentityPoolId('eu-west-1:11111111-example')
   .requireExternalId('githubactions');
 

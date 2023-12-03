@@ -19,8 +19,8 @@ const openIdConnectProvider = iam.OpenIdConnectProvider
 
 const pool = new ActionsIdentityPool(stack, 'Pool', {
   openIdConnectProvider: openIdConnectProvider,
-  authenticatedRole: 'create',
-  claimMapping: ClaimMapping.fromClaims('repository', 'actor', 'job_workflow_ref'),
+  authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE,
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY,GhaClaim.ACTOR, GhaClaim.JOB_WORKFLOW_REF),
   principalClaimRequirements: {
     repository: {
       condition: 'StringLike',
@@ -33,12 +33,12 @@ const role = new iam.Role(stack, 'Role', {
   assumedBy: pool.createPrincipalForPool(),
 });
 
-pool.assignRoleWhenClaimEquals(role, 'repository_owner', githubOrganization);
+pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY_OWNER, githubOrganization);
 
 declare const bucket: s3.Bucket;
 
 // permission granted at object prefix = /${aws:principalTag/repo}/cache/${aws:principalTag/jWorkRef}/*
-bucket.grantReadWrite(role, pool.util.iamResourcePath.value('repository', 'cache', 'job_workflow_ref', '*'));
+bucket.grantReadWrite(role, pool.util.iamResourcePath.value(GhaClaim.REPOSITORY, 'cache', GhaClaim.JOB_WORKFLOW_REF, '*'));
 ```
 
 ### Use in GitHub Actions
@@ -91,8 +91,8 @@ const openIdConnectProvider = new iam.OpenIdConnectProvider(stack, 'Provider', {
 
 const pool = new ActionsIdentityPool(stack, 'Pool', {
   openIdConnectProvider: openIdConnectProvider,
-  authenticatedRole: 'create',
-  claimMapping: ClaimMapping.fromClaims('repository', 'actor', 'job_workflow_ref', 'environment', 'sha', 'runner_environment'),
+  authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE,
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ACTOR, GhaClaim.REPOSITORY, GhaClaim.JOB_WORKFLOW_REF, GhaClaim.ENVIRONMENT, GhaClaim.SHA, GhaClaim.RUNNER_ENVIRONMENT),
   principalClaimRequirements: {
     repository: {
       condition: 'StringLike',
@@ -111,7 +111,7 @@ A use case for tag name abbreviations is because of [session limits](https://cat
 
 ```typescript
 const pool = new ActionsIdentityPool(stack, 'Pool', {
-  claimMapping: ClaimMapping.fromClaims('repository', 'environment', 'actor', 'job_workflow_ref'),
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT, GhaClaim.ACTOR, GhaClaim.JOB_WORKFLOW_REF),
 });
 ```
 
@@ -150,7 +150,7 @@ Use claim name as tag name.
 
 ```typescript
 const pool = new ActionsIdentityPool(stack, 'Pool', {
-  claimMapping: ClaimMapping.fromClaimsAsTagNames('repository', 'environment', 'actor', 'job_workflow_ref'),
+  claimMapping: ClaimMapping.fromClaimsAsTagNames(GhaClaim.REPOSITORY, GhaClaim.ENVIRONMENT, GhaClaim.ACTOR, GhaClaim.JOB_WORKFLOW_REF),
 });
 ```
 
@@ -159,7 +159,6 @@ const pool = new ActionsIdentityPool(stack, 'Pool', {
 
 ```typescript
 const pool = new ActionsIdentityPool(stack, 'Pool', {
-  claims: ['repository'],
   principalClaimRequirements: {
     repository: {
       condition: 'StringLike',
@@ -192,8 +191,8 @@ const role2 = new iam.Role(stack, 'Role2', {
   })),
 });
 
-pool.assignRoleWhenClaimEquals(role2, 'environment', 'test');
-pool.assignRoleWhenClaimEquals(role, 'repository_owner', 'catnekaise');
+pool.assignRoleWhenClaimEquals(role2, GhaClaim.ENVIRONMENT, 'test');
+pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY_OWNER, 'catnekaise');
 ```
 
 #### repository_owner claim
@@ -211,8 +210,8 @@ const role = new iam.Role(stack, 'Role', {
   assumedBy: principal,
 });
 
-pool.assignRoleWhenClaimEquals(role, 'repository_owner', 'catnekaise');
-pool.assignRoleWhenClaimStartsWith(role, 'repository', 'catnekaise/');
+pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY_OWNER, 'catnekaise');
+pool.assignRoleWhenClaimStartsWith(role, GhaClaim.REPOSITORY, 'catnekaise/');
 ```
 
 ### Role Assignment Order
@@ -235,10 +234,10 @@ const generalRole = new iam.Role(stack, 'GeneralRole', {
   assumedBy: pool.createPrincipalForPool(),
 });
 
-pool.assignRoleWhenClaimEquals(role, 'environment', 'dev'); // Rule 1
-pool.assignRoleWhenClaimEquals(role, 'environment', 'test'); // Rule 2
-pool.assignRoleWhenClaimEquals(generalRole, 'repository_owner', 'catnekaise'); // Rule 3
-pool.assignRoleWhenClaimEquals(role, 'environment', 'prod'); // Rule 4
+pool.assignRoleWhenClaimEquals(role, GhaClaim.ENVIRONMENT, 'dev'); // Rule 1
+pool.assignRoleWhenClaimEquals(role, GhaClaim.ENVIRONMENT, 'test'); // Rule 2
+pool.assignRoleWhenClaimEquals(generalRole, GhaClaim.REPOSITORY_OWNER, 'catnekaise'); // Rule 3
+pool.assignRoleWhenClaimEquals(role, GhaClaim.ENVIRONMENT, 'prod'); // Rule 4
 ```
 
 ### Default Authenticated Role
@@ -249,12 +248,12 @@ It's required to assign a role as the `default authenticated role` when using ro
 - Set `authenticatedRole` to `useFirstAssigned` and the first role provided to `ActionsIdentityPool` for role assignment is used as the default authenticated role.
 - Set `authenticatedRole` to `create` and `ActionsIdentityPool` will create a role for this purpose. 
   - Use `authenticatedRoleName` to provide the created role with a specific name.
-- Optionally set `roleResolution` to `defaultAuthenticatedRole` if the default authenticated role shall be used when no rule matched.
+- Optionally set `roleResolution` to `EnhancedFlowRoleResolution.UseDefaultAuthenticatedRole` if the default authenticated role shall be used when no rule matched.
 
 ```typescript
+
 const pool = new ActionsIdentityPool(stack, 'Pool', {
-  claims: ['repository'],
-  authenticatedRole: 'create',
+  authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE,
   authenticatedRoleName: 'cognito-gha-default',
   principalClaimRequirements: {
     repository: {
@@ -262,7 +261,7 @@ const pool = new ActionsIdentityPool(stack, 'Pool', {
       values: ['catnekaise/*'],
     },
   },
-  roleResolution: 'deny', // default
+  roleResolution: EnhancedFlowRoleResolution.DENY, // default
 });
 
 const defaultAuthRole: iam.Role | undefined = pool.defaultAuthenticatedRole;
@@ -279,7 +278,7 @@ Nonetheless, when setting `authenticatedRole` to `create`, the construct will us
 
 ```typescript
 const pool = new ActionsIdentityPool(stack, 'Pool', {
-  authenticatedRole: 'useFirstAssigned',
+  authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.USE_FIRST_ASSIGNED,
   authenticatedMethodReference: 'host',
 });
 
@@ -287,7 +286,7 @@ const role = new iam.Role(stack, 'Role', {
   assumedBy: pool.createPrincipalForPool(undefined, 'authenticated'),
 });
 
-pool.assignRoleWhenClaimEquals(role, 'repository_owner', 'catnekaise');
+pool.assignRoleWhenClaimEquals(role, GhaClaim.REPOSITORY_OWNER, 'catnekaise');
 ```
 
 | Option         | Value                                                                                |
