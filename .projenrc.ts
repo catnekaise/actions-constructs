@@ -61,6 +61,7 @@ if (releaseWorkflow) {
     with: {},
     permissions: {
       contents: JobPermission.READ,
+      idToken: JobPermission.WRITE,
     },
     secrets: {
       NPM_TOKEN: '${{ secrets.NPM_TOKEN }}',

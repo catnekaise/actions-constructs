@@ -50,6 +50,7 @@ jobs:
     if: needs.release.outputs.latest_commit == github.sha
     permissions:
       contents: read
+      id-token: write
     uses: catnekaise/actions-constructs/.github/workflows/release-npm.yml@main
     with: {}
     secrets:
