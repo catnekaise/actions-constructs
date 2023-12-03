@@ -2,6 +2,7 @@ import { CfnIdentityPoolRoleAttachment } from 'aws-cdk-lib/aws-cognito';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 import { ActionsIdentityPoolBase, ActionsIdentityPoolBaseProps } from './base-identity-pool';
+import { AuthenticatedMethodReference } from './types';
 
 export interface ActionsIdentityPoolBasicProps extends ActionsIdentityPoolBaseProps {
 }
@@ -14,7 +15,7 @@ export class ActionsIdentityPoolBasic extends ActionsIdentityPoolBase {
     super(scope, id, props, true);
 
     this.authenticatedRole = new iam.Role(this, 'AuthenticatedRole', {
-      assumedBy: this.createPrincipalForPool(props.principalClaimRequirements, 'authenticated'),
+      assumedBy: this.createPrincipalForPool(props.principalClaimRequirements, AuthenticatedMethodReference.AUTHENTICATED),
       roleName: props.authenticatedRoleName,
     });
 

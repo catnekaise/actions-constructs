@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import * as iam from 'aws-cdk-lib/aws-iam';
-import { ActionsIdentityPrincipalBuilder, ClaimMapping } from '../src';
+import { ActionsIdentityPrincipalBuilder, ClaimMapping, GhaClaim } from '../src';
 
 describe('Principal Builder', () => {
 
@@ -14,7 +14,7 @@ describe('Principal Builder', () => {
       },
     });
 
-    const claimMapping = ClaimMapping.fromDefaults('repository', 'repository_visibility');
+    const claimMapping = ClaimMapping.fromDefaults(GhaClaim.REPOSITORY, GhaClaim.REPOSITORY_VISIBILITY);
 
     const builder = ActionsIdentityPrincipalBuilder.create(claimMapping, 'eu-west-1:11111111-example');
 

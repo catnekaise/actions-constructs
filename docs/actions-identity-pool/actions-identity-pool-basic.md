@@ -10,7 +10,7 @@ Use this construct to create an `Amazon Cognito Identity Pool` intended for GitH
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as cdk from 'aws-cdk-lib';
-import { ActionsIdentityPoolBasic, ClaimMapping } from '@catnekaise/actions-constructs';
+import { ActionsIdentityPoolBasic, ClaimMapping, GhaClaim } from '@catnekaise/actions-constructs';
 
 const githubOrganization = 'catnekaise'; // Change this Value
 
@@ -22,7 +22,7 @@ const openIdConnectProvider = iam.OpenIdConnectProvider
 
 const pool = new ActionsIdentityPoolBasic(stack, 'Pool', {
   openIdConnectProvider: openIdConnectProvider,
-  claimMapping: ClaimMapping.fromClaims('repository', 'actor', 'job_workflow_ref', 'environment', 'sha', 'runner_environment'),
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ACTOR, GhaClaim.REPOSITORY, GhaClaim.JOB_WORKFLOW_REF, GhaClaim.ENVIRONMENT, GhaClaim.SHA, GhaClaim.RUNNER_ENVIRONMENT),
   principalClaimRequirements: {
     repository: {
       condition: 'StringLike',
@@ -36,7 +36,7 @@ const role = pool.authenticatedRole;
 declare const bucket: s3.Bucket;
 
 // permission granted at object prefix = /${aws:principalTag/repo}/cache/${aws:principalTag/jWorkRef}/*
-bucket.grantReadWrite(role, pool.util.iamResourcePath.value('repository', 'cache', 'job_workflow_ref', '*'));
+bucket.grantReadWrite(role, pool.util.iamResourcePath.value(GhaClaim.REPOSITORY, 'cache', GhaClaim.JOB_WORKFLOW_REF, '*'));
 ```
 
 ### Use in GitHub Actions
@@ -78,7 +78,6 @@ jobs:
 
 ```typescript
 const pool = new ActionsIdentityPoolBasic(stack, 'Pool', {
-  claims: ['repository'],
   principalClaimRequirements: {
     repository: {
       condition: 'StringLike',

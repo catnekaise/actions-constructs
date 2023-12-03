@@ -45,7 +45,7 @@ export class ActionsIdentityIamResourcePathBuilder {
   /**
    * Value can be anything. When value matches a known (mapped or not) GitHub Actions claim it will be treated as such.
    */
-  value(value: string | GhaClaim, ...additionalValues: (string | GhaClaim)[]): ActionsIdentityIamResourcePathBuilder {
+  value(value: GhaClaim | string, ...additionalValues: (GhaClaim | string)[]): ActionsIdentityIamResourcePathBuilder {
 
     const input: string[] = [];
 
@@ -68,8 +68,12 @@ export class ActionsIdentityIamResourcePathBuilder {
     return new ActionsIdentityIamResourcePathBuilder(this.claimMapping, [...this.path, ...input]);
   }
 
-  toString(separator?: string): string {
-    return this.path.join(separator ?? '/');
+  toStringWithSeparator(separator: string): string {
+    return this.path.join(separator);
+  }
+
+  toString(): string {
+    return this.path.join('/');
   }
 
 }

@@ -1,12 +1,12 @@
-import { ActionsIdentityIamResourcePathBuilder, ClaimMapping } from '../src';
+import { ActionsIdentityIamResourcePathBuilder, ClaimMapping, GhaClaim } from '../src';
 
 describe('IAM Resource Path', () => {
 
   it('should work with claim', () => {
 
-    const builder = ActionsIdentityIamResourcePathBuilder.fromClaimMapping(ClaimMapping.fromDefaults('repository'));
+    const builder = ActionsIdentityIamResourcePathBuilder.fromClaimMapping(ClaimMapping.fromDefaults(GhaClaim.REPOSITORY));
 
-    expect(builder.text('prefix').value('test', 'repository', '*').toString()).toEqual('prefix/test/${aws:principalTag/repo}/*');
+    expect(builder.text('prefix').value('test', GhaClaim.REPOSITORY, '*').toString()).toEqual('prefix/test/${aws:principalTag/repo}/*');
 
   });
 
@@ -18,9 +18,9 @@ describe('IAM Resource Path', () => {
       repository_owner_id: 'c',
     }));
 
-    const value = builder.claim('repository_owner')
-      .claim('repository_owner_id')
-      .claim('repository')
+    const value = builder.claim(GhaClaim.REPOSITORY_OWNER)
+      .claim(GhaClaim.REPOSITORY_OWNER_ID)
+      .claim(GhaClaim.REPOSITORY)
       .text('*')
       .toString();
 
@@ -30,10 +30,10 @@ describe('IAM Resource Path', () => {
 
   it('should throw error when using unmapped claims', () => {
 
-    const builder = ActionsIdentityIamResourcePathBuilder.fromClaimMapping(ClaimMapping.fromDefaults('repository'));
+    const builder = ActionsIdentityIamResourcePathBuilder.fromClaimMapping(ClaimMapping.fromDefaults(GhaClaim.REPOSITORY));
 
-    expect(() => builder.claim('environment')).toThrow();
-    expect(() => builder.value('enterprise')).toThrow();
+    expect(() => builder.claim(GhaClaim.ENVIRONMENT)).toThrow();
+    expect(() => builder.value(GhaClaim.ENTERPRISE)).toThrow();
 
   });
 
@@ -45,10 +45,10 @@ describe('IAM Resource Path', () => {
       repository_owner_id: 'ownerId',
     }));
 
-    const builder2 = builder.claim('repository_owner');
+    const builder2 = builder.claim(GhaClaim.REPOSITORY_OWNER);
     builder2.text('omitted');
 
-    let builder3 = builder2.value('repository');
+    let builder3 = builder2.value(GhaClaim.REPOSITORY);
     builder3 = builder3.text('*');
 
     expect(builder.toString()).toEqual('');

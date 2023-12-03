@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import * as iam from 'aws-cdk-lib/aws-iam';
-import { ActionsIdentityChainedPrincipalBuilder, ChainedPrincipalConditions, ClaimMapping } from '../src';
+import { ActionsIdentityChainedPrincipalBuilder, ChainedPrincipalConditions, ClaimMapping, GhaClaim } from '../src';
 
 describe('Chained Principal Builder', () => {
 
@@ -19,8 +19,8 @@ describe('Chained Principal Builder', () => {
       environment: 'env',
       repository: 'repo',
     }))
-      .passesClaim('environment', 'repository')
-      .claimEquals('repository', 'catnekaise/actions-constructs');
+      .passesClaim(GhaClaim.ENVIRONMENT, GhaClaim.REPOSITORY)
+      .claimEquals(GhaClaim.REPOSITORY, 'catnekaise/actions-constructs');
 
     new iam.Role(stack, 'Role', { assumedBy: builder.createPrincipalAssumedBy(new iam.AccountRootPrincipal()) });
 
@@ -58,8 +58,8 @@ describe('Chained Principal Builder', () => {
       environment: 'test',
       repository: 'repo',
     }))
-      .passesClaim('environment', 'repository')
-      .claimLike('repository', 'catnekaise/*');
+      .passesClaim(GhaClaim.ENVIRONMENT, GhaClaim.REPOSITORY)
+      .claimLike(GhaClaim.REPOSITORY, 'catnekaise/*');
 
 
     const conditions = builder.createConditions() as ChainedPrincipalConditions;
@@ -106,8 +106,8 @@ describe('Chained Principal Builder', () => {
       environment: 'env',
       repository: 'repo',
     }))
-      .passesClaim('environment', 'repository')
-      .claimEquals('repository', 'catnekaise/actions-constructs')
+      .passesClaim(GhaClaim.ENVIRONMENT, GhaClaim.REPOSITORY)
+      .claimEquals(GhaClaim.REPOSITORY, 'catnekaise/actions-constructs')
       .requireExternalId('test')
       .requireIdentityPoolId('eu-west:11111111-example');
 
@@ -152,9 +152,9 @@ describe('Chained Principal Builder', () => {
       repository: 'repo',
     }));
 
-    expect(() => builder.claimEquals('job_workflow_ref', 'test')).toThrow();
-    expect(() => builder.passesClaim('job_workflow_ref')).toThrow();
-    expect(() => builder.claimLike('job_workflow_ref', 'test')).toThrow();
+    expect(() => builder.claimEquals(GhaClaim.JOB_WORKFLOW_REF, 'test')).toThrow();
+    expect(() => builder.passesClaim(GhaClaim.JOB_WORKFLOW_REF)).toThrow();
+    expect(() => builder.claimLike(GhaClaim.JOB_WORKFLOW_REF, 'test')).toThrow();
 
   });
 
@@ -166,8 +166,8 @@ describe('Chained Principal Builder', () => {
       environment: 'test',
       repository: 'repo',
     }))
-      .passesClaim('environment', 'repository')
-      .claimLike('repository', 'catnekaise/*');
+      .passesClaim(GhaClaim.ENVIRONMENT, GhaClaim.REPOSITORY)
+      .claimLike(GhaClaim.REPOSITORY, 'catnekaise/*');
 
     new iam.Role(stack, 'role', { assumedBy: builder.createPrincipalAssumedBy(new iam.AccountRootPrincipal()) });
 
