@@ -34,7 +34,7 @@ const openIdConnectProvider = iam.OpenIdConnectProvider
 
 const pool = new ActionsIdentityPoolBasic(stack, 'Pool', {
   openIdConnectProvider: openIdConnectProvider,
-  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ACTOR, GhaClaim.REPOSITORY, GhaClaim.JOB_WORKFLOW_REF, GhaClaim.ENVIRONMENT, GhaClaim.SHA, GhaClaim.RUNNER_ENVIRONMENT),
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ACTOR, GhaClaim.JOB_WORKFLOW_REF, GhaClaim.ENVIRONMENT, GhaClaim.SHA, GhaClaim.RUNNER_ENVIRONMENT),
   principalClaimRequirements: {
     repository: {
       condition: 'StringLike',
