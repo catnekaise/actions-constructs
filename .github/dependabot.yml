@@ -2,17 +2,15 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     versioning-strategy: "lockfile-only"
+    commit-message:
+      prefix: chore
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: projen
     groups:
       development-dependencies:
         dependency-type: "development"
-    labels:
-      - "auto-approve"
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
     labels:
       - "auto-approve"
