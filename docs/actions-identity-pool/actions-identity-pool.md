@@ -92,7 +92,7 @@ const openIdConnectProvider = new iam.OpenIdConnectProvider(stack, 'Provider', {
 const pool = new ActionsIdentityPool(stack, 'Pool', {
   openIdConnectProvider: openIdConnectProvider,
   authenticatedRole: ActionsIdentityPoolAuthenticatedRoleBehaviour.CREATE,
-  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ACTOR, GhaClaim.REPOSITORY, GhaClaim.JOB_WORKFLOW_REF, GhaClaim.ENVIRONMENT, GhaClaim.SHA, GhaClaim.RUNNER_ENVIRONMENT),
+  claimMapping: ClaimMapping.fromClaims(GhaClaim.REPOSITORY, GhaClaim.ACTOR, GhaClaim.JOB_WORKFLOW_REF, GhaClaim.ENVIRONMENT, GhaClaim.SHA, GhaClaim.RUNNER_ENVIRONMENT),
   principalClaimRequirements: {
     repository: {
       condition: 'StringLike',
