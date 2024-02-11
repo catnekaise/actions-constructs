@@ -163,7 +163,19 @@
       "description": "Packages artifacts for all target languages",
       "steps": [
         {
+          "spawn": "package:dotnet"
+        },
+        {
           "spawn": "package:js"
+        }
+      ]
+    },
+    "package:dotnet": {
+      "name": "package:dotnet",
+      "description": "Create dotnet language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target dotnet"
         }
       ]
     },

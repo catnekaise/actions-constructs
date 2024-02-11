@@ -17,6 +17,7 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
+    "package:dotnet": "npx projen package:dotnet",
     "package:js": "npx projen package:js",
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
@@ -33,6 +34,7 @@
     "organization": false
   },
   "devDependencies": {
+    "@catnekaise/cdk-iam-utilities": "0.0.9",
     "@types/jest": "^29.5.8",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
@@ -56,6 +58,7 @@
     "typescript": "~5.2.2"
   },
   "peerDependencies": {
+    "@catnekaise/cdk-iam-utilities": "^0.0.9",
     "aws-cdk-lib": "^2.82.0",
     "constructs": "^10.0.5"
   },
@@ -122,7 +125,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "dotnet": {
+        "namespace": "Catnekaise.CDK.ActionsConstructs",
+        "packageId": "Catnekaise.CDK.ActionsConstructs"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"

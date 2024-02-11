@@ -37,6 +37,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'oidc',
     'openid-connect',
   ],
+  publishToNuget: {
+    dotNetNamespace: 'Catnekaise.CDK.ActionsConstructs',
+    packageId: 'Catnekaise.CDK.ActionsConstructs',
+  },
 });
 project.addPackageIgnore('/docs/');
 
@@ -71,5 +75,8 @@ if (releaseWorkflow) {
     if: 'needs.release.outputs.latest_commit == github.sha',
   });
 }
+
+project.addDevDeps('@catnekaise/cdk-iam-utilities@^0.0.9');
+project.addPeerDeps('@catnekaise/cdk-iam-utilities@^0.0.9');
 
 project.synth();

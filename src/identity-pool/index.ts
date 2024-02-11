@@ -4,3 +4,7 @@ export * from './base-identity-pool';
 export * from './claims';
 export * from './types';
 export * from './util';
+export * from './policy-utility';
+export * from './constraints';
+export * from './helpers';
+export * from './actions-identity-pool-v2';

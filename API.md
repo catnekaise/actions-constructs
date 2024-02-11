@@ -571,7 +571,253 @@ public readonly defaultAuthenticatedRole: Role;
 ---
 
 
+### ActionsIdentityPoolV2 <a name="ActionsIdentityPoolV2" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.Initializer"></a>
+
+```typescript
+import { ActionsIdentityPoolV2 } from '@catnekaise/actions-constructs'
+
+new ActionsIdentityPoolV2(scope: Construct, id: string, props: ActionsIdentityPoolV2Props)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.Initializer.parameter.props">props</a></code> | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props">ActionsIdentityPoolV2Props</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props">ActionsIdentityPoolV2Props</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.enhancedFlowAssignRole">enhancedFlowAssignRole</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `enhancedFlowAssignRole` <a name="enhancedFlowAssignRole" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.enhancedFlowAssignRole"></a>
+
+```typescript
+public enhancedFlowAssignRole(role: Role, claim: GhaClaim, matchType: EnhancedFlowMatchType, value: string): ActionsIdentityPoolV2
+```
+
+###### `role`<sup>Required</sup> <a name="role" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.enhancedFlowAssignRole.parameter.role"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.Role
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.enhancedFlowAssignRole.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `matchType`<sup>Required</sup> <a name="matchType" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.enhancedFlowAssignRole.parameter.matchType"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.EnhancedFlowMatchType">EnhancedFlowMatchType</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.enhancedFlowAssignRole.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.isConstruct"></a>
+
+```typescript
+import { ActionsIdentityPoolV2 } from '@catnekaise/actions-constructs'
+
+ActionsIdentityPoolV2.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.defaultAuthenticatedRole">defaultAuthenticatedRole</a></code> | <code>aws-cdk-lib.aws_iam.Role</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.identityPoolId">identityPoolId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.policyUtility">policyUtility</a></code> | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility">ActionsIdentityPolicyUtility</a></code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `defaultAuthenticatedRole`<sup>Required</sup> <a name="defaultAuthenticatedRole" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.defaultAuthenticatedRole"></a>
+
+```typescript
+public readonly defaultAuthenticatedRole: Role;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.Role
+
+---
+
+##### `identityPoolId`<sup>Required</sup> <a name="identityPoolId" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.identityPoolId"></a>
+
+```typescript
+public readonly identityPoolId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `policyUtility`<sup>Required</sup> <a name="policyUtility" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2.property.policyUtility"></a>
+
+```typescript
+public readonly policyUtility: ActionsIdentityPolicyUtility;
+```
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility">ActionsIdentityPolicyUtility</a>
+
+---
+
+
 ## Structs <a name="Structs" id="Structs"></a>
+
+### ActionsIdentityPolicyUtilitySettings <a name="ActionsIdentityPolicyUtilitySettings" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings"></a>
+
+#### Initializer <a name="Initializer" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.Initializer"></a>
+
+```typescript
+import { ActionsIdentityPolicyUtilitySettings } from '@catnekaise/actions-constructs'
+
+const actionsIdentityPolicyUtilitySettings: ActionsIdentityPolicyUtilitySettings = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.claimsContext">claimsContext</a></code> | <code>@catnekaise/cdk-iam-utilities.IClaimsContext</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.basePrincipalConstraints">basePrincipalConstraints</a></code> | <code>@catnekaise/cdk-iam-utilities.Constraint[]</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.defaultAmr">defaultAmr</a></code> | <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.identityPoolAccountId">identityPoolAccountId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.identityPoolId">identityPoolId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.identityPoolUsesEnhancedFlow">identityPoolUsesEnhancedFlow</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `claimsContext`<sup>Required</sup> <a name="claimsContext" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.claimsContext"></a>
+
+```typescript
+public readonly claimsContext: IClaimsContext;
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.IClaimsContext
+
+---
+
+##### `basePrincipalConstraints`<sup>Optional</sup> <a name="basePrincipalConstraints" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.basePrincipalConstraints"></a>
+
+```typescript
+public readonly basePrincipalConstraints: Constraint[];
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint[]
+
+---
+
+##### `defaultAmr`<sup>Optional</sup> <a name="defaultAmr" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.defaultAmr"></a>
+
+```typescript
+public readonly defaultAmr: AuthenticatedMethodReference;
+```
+
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
+
+---
+
+##### `identityPoolAccountId`<sup>Optional</sup> <a name="identityPoolAccountId" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.identityPoolAccountId"></a>
+
+```typescript
+public readonly identityPoolAccountId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `identityPoolId`<sup>Optional</sup> <a name="identityPoolId" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.identityPoolId"></a>
+
+```typescript
+public readonly identityPoolId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `identityPoolUsesEnhancedFlow`<sup>Optional</sup> <a name="identityPoolUsesEnhancedFlow" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings.property.identityPoolUsesEnhancedFlow"></a>
+
+```typescript
+public readonly identityPoolUsesEnhancedFlow: boolean;
+```
+
+- *Type:* boolean
+
+---
 
 ### ActionsIdentityPoolBaseProps <a name="ActionsIdentityPoolBaseProps" id="@catnekaise/actions-constructs.ActionsIdentityPoolBaseProps"></a>
 
@@ -996,6 +1242,351 @@ When no rule matches, request should be denied or use default authenticated role
 
 ---
 
+### ActionsIdentityPoolV2Props <a name="ActionsIdentityPoolV2Props" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props"></a>
+
+#### Initializer <a name="Initializer" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.Initializer"></a>
+
+```typescript
+import { ActionsIdentityPoolV2Props } from '@catnekaise/actions-constructs'
+
+const actionsIdentityPoolV2Props: ActionsIdentityPoolV2Props = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.authenticatedRoleConstraints">authenticatedRoleConstraints</a></code> | <code>@catnekaise/cdk-iam-utilities.Constraint[]</code> | Constraints for the default authenticated role created in this pool. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.mappedClaims">mappedClaims</a></code> | <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims">ActionsIdentityMappedClaims</a></code> | Mapped Claims for this Identity Pool. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.authenticatedMethodReference">authenticatedMethodReference</a></code> | <code><a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a></code> | Authenticated Method Reference. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.authenticatedRoleName">authenticatedRoleName</a></code> | <code>string</code> | Name of authenticated role when creating role. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.enhancedFlowRoleResolution">enhancedFlowRoleResolution</a></code> | <code><a href="#@catnekaise/actions-constructs.EnhancedFlowRoleResolution">EnhancedFlowRoleResolution</a></code> | Only applicable when setting `useEnhancedFlow` to `true`. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.identityPoolName">identityPoolName</a></code> | <code>string</code> | Name of the Identity Pool. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.openIdConnectProvider">openIdConnectProvider</a></code> | <code>aws-cdk-lib.aws_iam.IOpenIdConnectProvider</code> | Provide this or attempt will be made to import OpenIdConnectProvider using defaults. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.poolIdExportName">poolIdExportName</a></code> | <code>string</code> | Export name for the CfnOutput containing the Identity Pool ID. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.removalPolicy">removalPolicy</a></code> | <code>aws-cdk-lib.RemovalPolicy</code> | Set removal policy. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.useEnhancedAuthFlow">useEnhancedAuthFlow</a></code> | <code>boolean</code> | Use Enhanced (Simplified) AuthFlow instead of Basic. |
+
+---
+
+##### `authenticatedRoleConstraints`<sup>Required</sup> <a name="authenticatedRoleConstraints" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.authenticatedRoleConstraints"></a>
+
+```typescript
+public readonly authenticatedRoleConstraints: Constraint[];
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint[]
+
+Constraints for the default authenticated role created in this pool.
+
+```ts
+new ActionsIdentityPoolV2(this,'Pool', {
+  authenticatedRoleConstraints: [
+   GitHubActionsClaimConstraint.repoOwners(`catnekaise`),
+   // additional constraints
+  ]
+});
+```
+
+---
+
+##### `mappedClaims`<sup>Required</sup> <a name="mappedClaims" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.mappedClaims"></a>
+
+```typescript
+public readonly mappedClaims: ActionsIdentityMappedClaims;
+```
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims">ActionsIdentityMappedClaims</a>
+
+Mapped Claims for this Identity Pool.
+
+---
+
+##### `authenticatedMethodReference`<sup>Optional</sup> <a name="authenticatedMethodReference" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.authenticatedMethodReference"></a>
+
+```typescript
+public readonly authenticatedMethodReference: AuthenticatedMethodReference;
+```
+
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
+- *Default:* authenticated
+
+Authenticated Method Reference.
+
+authenticated = authenticated (default)
+
+host = token.actions.githubusercontent.com
+
+arn = arn:aws:iam::111111111111:oidc-provider/token.actions.githubusercontent.com:OIDC:*
+
+---
+
+##### `authenticatedRoleName`<sup>Optional</sup> <a name="authenticatedRoleName" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.authenticatedRoleName"></a>
+
+```typescript
+public readonly authenticatedRoleName: string;
+```
+
+- *Type:* string
+
+Name of authenticated role when creating role.
+
+---
+
+##### `enhancedFlowRoleResolution`<sup>Optional</sup> <a name="enhancedFlowRoleResolution" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.enhancedFlowRoleResolution"></a>
+
+```typescript
+public readonly enhancedFlowRoleResolution: EnhancedFlowRoleResolution;
+```
+
+- *Type:* <a href="#@catnekaise/actions-constructs.EnhancedFlowRoleResolution">EnhancedFlowRoleResolution</a>
+- *Default:* deny
+
+Only applicable when setting `useEnhancedFlow` to `true`.
+
+---
+
+##### `identityPoolName`<sup>Optional</sup> <a name="identityPoolName" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.identityPoolName"></a>
+
+```typescript
+public readonly identityPoolName: string;
+```
+
+- *Type:* string
+
+Name of the Identity Pool.
+
+---
+
+##### `openIdConnectProvider`<sup>Optional</sup> <a name="openIdConnectProvider" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.openIdConnectProvider"></a>
+
+```typescript
+public readonly openIdConnectProvider: IOpenIdConnectProvider;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IOpenIdConnectProvider
+- *Default:* Attempts to imports OIDC Provider from AWS Account
+
+Provide this or attempt will be made to import OpenIdConnectProvider using defaults.
+
+---
+
+##### `poolIdExportName`<sup>Optional</sup> <a name="poolIdExportName" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.poolIdExportName"></a>
+
+```typescript
+public readonly poolIdExportName: string;
+```
+
+- *Type:* string
+
+Export name for the CfnOutput containing the Identity Pool ID.
+
+---
+
+##### `removalPolicy`<sup>Optional</sup> <a name="removalPolicy" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.removalPolicy"></a>
+
+```typescript
+public readonly removalPolicy: RemovalPolicy;
+```
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+Set removal policy.
+
+---
+
+##### `useEnhancedAuthFlow`<sup>Optional</sup> <a name="useEnhancedAuthFlow" id="@catnekaise/actions-constructs.ActionsIdentityPoolV2Props.property.useEnhancedAuthFlow"></a>
+
+```typescript
+public readonly useEnhancedAuthFlow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use Enhanced (Simplified) AuthFlow instead of Basic.
+
+---
+
+### BuilderSettings <a name="BuilderSettings" id="@catnekaise/actions-constructs.BuilderSettings"></a>
+
+#### Initializer <a name="Initializer" id="@catnekaise/actions-constructs.BuilderSettings.Initializer"></a>
+
+```typescript
+import { BuilderSettings } from '@catnekaise/actions-constructs'
+
+const builderSettings: BuilderSettings = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.BuilderSettings.property.claimsContext">claimsContext</a></code> | <code>@catnekaise/cdk-iam-utilities.IClaimsContext</code> | *No description.* |
+
+---
+
+##### `claimsContext`<sup>Required</sup> <a name="claimsContext" id="@catnekaise/actions-constructs.BuilderSettings.property.claimsContext"></a>
+
+```typescript
+public readonly claimsContext: IClaimsContext;
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.IClaimsContext
+
+---
+
+### ChainedPrincipalCreateOptions <a name="ChainedPrincipalCreateOptions" id="@catnekaise/actions-constructs.ChainedPrincipalCreateOptions"></a>
+
+#### Initializer <a name="Initializer" id="@catnekaise/actions-constructs.ChainedPrincipalCreateOptions.Initializer"></a>
+
+```typescript
+import { ChainedPrincipalCreateOptions } from '@catnekaise/actions-constructs'
+
+const chainedPrincipalCreateOptions: ChainedPrincipalCreateOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalCreateOptions.property.passClaims">passClaims</a></code> | <code>@catnekaise/cdk-iam-utilities.PassClaimsConstraintSettings</code> | *No description.* |
+
+---
+
+##### `passClaims`<sup>Optional</sup> <a name="passClaims" id="@catnekaise/actions-constructs.ChainedPrincipalCreateOptions.property.passClaims"></a>
+
+```typescript
+public readonly passClaims: PassClaimsConstraintSettings;
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.PassClaimsConstraintSettings
+
+---
+
+### ConstrainerSettings <a name="ConstrainerSettings" id="@catnekaise/actions-constructs.ConstrainerSettings"></a>
+
+#### Initializer <a name="Initializer" id="@catnekaise/actions-constructs.ConstrainerSettings.Initializer"></a>
+
+```typescript
+import { ConstrainerSettings } from '@catnekaise/actions-constructs'
+
+const constrainerSettings: ConstrainerSettings = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ConstrainerSettings.property.claimsContext">claimsContext</a></code> | <code>@catnekaise/cdk-iam-utilities.IClaimsContext</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstrainerSettings.property.policyType">policyType</a></code> | <code>@catnekaise/cdk-iam-utilities.PolicyType</code> | *No description.* |
+
+---
+
+##### `claimsContext`<sup>Required</sup> <a name="claimsContext" id="@catnekaise/actions-constructs.ConstrainerSettings.property.claimsContext"></a>
+
+```typescript
+public readonly claimsContext: IClaimsContext;
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.IClaimsContext
+
+---
+
+##### `policyType`<sup>Optional</sup> <a name="policyType" id="@catnekaise/actions-constructs.ConstrainerSettings.property.policyType"></a>
+
+```typescript
+public readonly policyType: PolicyType;
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.PolicyType
+
+---
+
+### GrantOrgRoleChainSettings <a name="GrantOrgRoleChainSettings" id="@catnekaise/actions-constructs.GrantOrgRoleChainSettings"></a>
+
+#### Initializer <a name="Initializer" id="@catnekaise/actions-constructs.GrantOrgRoleChainSettings.Initializer"></a>
+
+```typescript
+import { GrantOrgRoleChainSettings } from '@catnekaise/actions-constructs'
+
+const grantOrgRoleChainSettings: GrantOrgRoleChainSettings = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.excludeAccountIds">excludeAccountIds</a></code> | <code>string[]</code> | Prevent assuming roles in these accounts. |
+| <code><a href="#@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.resourceOrgPaths">resourceOrgPaths</a></code> | <code>string[]</code> | Require roles to exist under specified organization paths. |
+| <code><a href="#@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.resourceOrgPathStringEquals">resourceOrgPathStringEquals</a></code> | <code>boolean</code> | Match resourcePaths using StringEquals instead of StringLike. |
+| <code><a href="#@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.roleHasResourceTags">roleHasResourceTags</a></code> | <code>{[ key: string ]: string}</code> | Role has resource tags matching specified values. |
+| <code><a href="#@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.rolePath">rolePath</a></code> | <code>string</code> | Require that roles exist under this path for sts:AssumeRole. |
+
+---
+
+##### `excludeAccountIds`<sup>Optional</sup> <a name="excludeAccountIds" id="@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.excludeAccountIds"></a>
+
+```typescript
+public readonly excludeAccountIds: string[];
+```
+
+- *Type:* string[]
+
+Prevent assuming roles in these accounts.
+
+---
+
+##### `resourceOrgPaths`<sup>Optional</sup> <a name="resourceOrgPaths" id="@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.resourceOrgPaths"></a>
+
+```typescript
+public readonly resourceOrgPaths: string[];
+```
+
+- *Type:* string[]
+
+Require roles to exist under specified organization paths.
+
+---
+
+##### `resourceOrgPathStringEquals`<sup>Optional</sup> <a name="resourceOrgPathStringEquals" id="@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.resourceOrgPathStringEquals"></a>
+
+```typescript
+public readonly resourceOrgPathStringEquals: boolean;
+```
+
+- *Type:* boolean
+
+Match resourcePaths using StringEquals instead of StringLike.
+
+---
+
+##### `roleHasResourceTags`<sup>Optional</sup> <a name="roleHasResourceTags" id="@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.roleHasResourceTags"></a>
+
+```typescript
+public readonly roleHasResourceTags: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Role has resource tags matching specified values.
+
+If tag value matches a known GitHub Actions claim, then value is changed to `${aws:PrincipalTag/value}`
+
+---
+
+##### `rolePath`<sup>Optional</sup> <a name="rolePath" id="@catnekaise/actions-constructs.GrantOrgRoleChainSettings.property.rolePath"></a>
+
+```typescript
+public readonly rolePath: string;
+```
+
+- *Type:* string
+
+Require that roles exist under this path for sts:AssumeRole.
+
+---
+
 ### MappedClaim <a name="MappedClaim" id="@catnekaise/actions-constructs.MappedClaim"></a>
 
 #### Initializer <a name="Initializer" id="@catnekaise/actions-constructs.MappedClaim.Initializer"></a>
@@ -1329,6 +1920,254 @@ ActionsIdentityChainedPrincipalBuilder.fromClaimMapping(claimMapping: ClaimMappi
 
 
 
+### ActionsIdentityConstraints <a name="ActionsIdentityConstraints" id="@catnekaise/actions-constructs.ActionsIdentityConstraints"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.Initializer"></a>
+
+```typescript
+import { ActionsIdentityConstraints } from '@catnekaise/actions-constructs'
+
+new ActionsIdentityConstraints()
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.approvedBy">approvedBy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.refLike">refLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.repoOrganisations">repoOrganisations</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryEquals">repositoryEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryLike">repositoryLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityConstraints.whenSelfHosted">whenSelfHosted</a></code> | *No description.* |
+
+---
+
+##### `approvedBy` <a name="approvedBy" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.approvedBy"></a>
+
+```typescript
+public approvedBy(actors: string): ActionsIdentityConstraints
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.approvedBy.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimCondition"></a>
+
+```typescript
+public claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string): ActionsIdentityConstraints
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimEquals"></a>
+
+```typescript
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimLike"></a>
+
+```typescript
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimLike.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.claimLike.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.environmentEquals"></a>
+
+```typescript
+public environmentEquals(environment: string, additionalEnvironments: string): ActionsIdentityConstraints
+```
+
+###### `environment`<sup>Required</sup> <a name="environment" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.environmentEquals.parameter.environment"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalEnvironments`<sup>Required</sup> <a name="additionalEnvironments" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.environmentEquals.parameter.additionalEnvironments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.jobWorkflowLike"></a>
+
+```typescript
+public jobWorkflowLike(organization: string, repositoryName?: string, filename?: string, ref?: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Optional</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `refLike` <a name="refLike" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.refLike"></a>
+
+```typescript
+public refLike(refs: string): ActionsIdentityConstraints
+```
+
+###### `refs`<sup>Required</sup> <a name="refs" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.refLike.parameter.refs"></a>
+
+- *Type:* string
+
+---
+
+##### `repoOrganisations` <a name="repoOrganisations" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repoOrganisations"></a>
+
+```typescript
+public repoOrganisations(organization: string, additionalOrganizations: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repoOrganisations.parameter.organization"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalOrganizations`<sup>Required</sup> <a name="additionalOrganizations" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repoOrganisations.parameter.additionalOrganizations"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryEquals` <a name="repositoryEquals" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryEquals"></a>
+
+```typescript
+public repositoryEquals(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryEquals.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryEquals.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryLike"></a>
+
+```typescript
+public repositoryLike(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryLike.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.repositoryLike.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `whenSelfHosted` <a name="whenSelfHosted" id="@catnekaise/actions-constructs.ActionsIdentityConstraints.whenSelfHosted"></a>
+
+```typescript
+public whenSelfHosted(): ActionsIdentityConstraints
+```
+
+
+
+
 ### ActionsIdentityIamResourcePathBuilder <a name="ActionsIdentityIamResourcePathBuilder" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilder"></a>
 
 #### Methods <a name="Methods" id="Methods"></a>
@@ -1447,6 +2286,487 @@ ActionsIdentityIamResourcePathBuilder.fromClaimMapping(claimMapping: ClaimMappin
 
 ---
 
+
+
+### ActionsIdentityIamResourcePathBuilderV2 <a name="ActionsIdentityIamResourcePathBuilderV2" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.toString">toString</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.asStringWithSeparator">asStringWithSeparator</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.claim">claim</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.policyVariable">policyVariable</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.text">text</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.value">value</a></code> | *No description.* |
+
+---
+
+##### `toString` <a name="toString" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+##### `asStringWithSeparator` <a name="asStringWithSeparator" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.asStringWithSeparator"></a>
+
+```typescript
+public asStringWithSeparator(separator: string): string
+```
+
+###### `separator`<sup>Required</sup> <a name="separator" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.asStringWithSeparator.parameter.separator"></a>
+
+- *Type:* string
+
+---
+
+##### `claim` <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.claim"></a>
+
+```typescript
+public claim(claim: GhaClaim, additionalClaims: GhaClaim): ActionsIdentityIamResourcePathBuilderV2
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.claim.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `additionalClaims`<sup>Required</sup> <a name="additionalClaims" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.claim.parameter.additionalClaims"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `policyVariable` <a name="policyVariable" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.policyVariable"></a>
+
+```typescript
+public policyVariable(value: PolicyVariable): ActionsIdentityIamResourcePathBuilderV2
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.policyVariable.parameter.value"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.PolicyVariable
+
+---
+
+##### `text` <a name="text" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.text"></a>
+
+```typescript
+public text(value: string, additionalValues: string): ActionsIdentityIamResourcePathBuilderV2
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.text.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.text.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `value` <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.value"></a>
+
+```typescript
+public value(value: string, additionalValues: string): ActionsIdentityIamResourcePathBuilderV2
+```
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.value.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.value.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.fromMappedClaims">fromMappedClaims</a></code> | *No description.* |
+
+---
+
+##### `fromMappedClaims` <a name="fromMappedClaims" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.fromMappedClaims"></a>
+
+```typescript
+import { ActionsIdentityIamResourcePathBuilderV2 } from '@catnekaise/actions-constructs'
+
+ActionsIdentityIamResourcePathBuilderV2.fromMappedClaims(mappedClaims: IMappedClaims)
+```
+
+###### `mappedClaims`<sup>Required</sup> <a name="mappedClaims" id="@catnekaise/actions-constructs.ActionsIdentityIamResourcePathBuilderV2.fromMappedClaims.parameter.mappedClaims"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.IMappedClaims
+
+---
+
+
+
+### ActionsIdentityMappedClaims <a name="ActionsIdentityMappedClaims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims"></a>
+
+- *Implements:* @catnekaise/cdk-iam-utilities.IMappedClaims
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.Initializer"></a>
+
+```typescript
+import { ActionsIdentityMappedClaims } from '@catnekaise/actions-constructs'
+
+new ActionsIdentityMappedClaims(_claims: Claim[])
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.Initializer.parameter._claims">_claims</a></code> | <code>@catnekaise/cdk-iam-utilities.Claim[]</code> | *No description.* |
+
+---
+
+##### `_claims`<sup>Required</sup> <a name="_claims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.Initializer.parameter._claims"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Claim[]
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toClaimsContext">toClaimsContext</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toConfigureAwsCredentialsPassClaims">toConfigureAwsCredentialsPassClaims</a></code> | Use this if you want to use https://github.com/aws-actions/configure-aws-credentials for performing role chaining. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaims">toPassClaims</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaimsCustom">toPassClaimsCustom</a></code> | *No description.* |
+
+---
+
+##### `toClaimsContext` <a name="toClaimsContext" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toClaimsContext"></a>
+
+```typescript
+public toClaimsContext(): IClaimsContext
+```
+
+##### `toConfigureAwsCredentialsPassClaims` <a name="toConfigureAwsCredentialsPassClaims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toConfigureAwsCredentialsPassClaims"></a>
+
+```typescript
+public toConfigureAwsCredentialsPassClaims(): PassClaimsConstraintSettings
+```
+
+Use this if you want to use https://github.com/aws-actions/configure-aws-credentials for performing role chaining.
+
+##### `toPassClaims` <a name="toPassClaims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaims"></a>
+
+```typescript
+public toPassClaims(claims: GhaClaim): PassClaimsConstraintSettings
+```
+
+###### `claims`<sup>Required</sup> <a name="claims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaims.parameter.claims"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `toPassClaimsCustom` <a name="toPassClaimsCustom" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaimsCustom"></a>
+
+```typescript
+public toPassClaimsCustom(claims: {[ key: string ]: string}, allowAnyTags?: boolean, specificallyAllowedTags?: string[]): PassClaimsConstraintSettings
+```
+
+###### `claims`<sup>Required</sup> <a name="claims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaimsCustom.parameter.claims"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+###### `allowAnyTags`<sup>Optional</sup> <a name="allowAnyTags" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaimsCustom.parameter.allowAnyTags"></a>
+
+- *Type:* boolean
+
+---
+
+###### `specificallyAllowedTags`<sup>Optional</sup> <a name="specificallyAllowedTags" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.toPassClaimsCustom.parameter.specificallyAllowedTags"></a>
+
+- *Type:* string[]
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.create">create</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.createCustom">createCustom</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.createWithAbbreviations">createWithAbbreviations</a></code> | *No description.* |
+
+---
+
+##### `create` <a name="create" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.create"></a>
+
+```typescript
+import { ActionsIdentityMappedClaims } from '@catnekaise/actions-constructs'
+
+ActionsIdentityMappedClaims.create(claim: GhaClaim, additionalClaims: GhaClaim)
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.create.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `additionalClaims`<sup>Required</sup> <a name="additionalClaims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.create.parameter.additionalClaims"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `createCustom` <a name="createCustom" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.createCustom"></a>
+
+```typescript
+import { ActionsIdentityMappedClaims } from '@catnekaise/actions-constructs'
+
+ActionsIdentityMappedClaims.createCustom(claims: {[ key: string ]: string})
+```
+
+###### `claims`<sup>Required</sup> <a name="claims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.createCustom.parameter.claims"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `createWithAbbreviations` <a name="createWithAbbreviations" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.createWithAbbreviations"></a>
+
+```typescript
+import { ActionsIdentityMappedClaims } from '@catnekaise/actions-constructs'
+
+ActionsIdentityMappedClaims.createWithAbbreviations(claim: GhaClaim, additionalClaims: GhaClaim)
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.createWithAbbreviations.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `additionalClaims`<sup>Required</sup> <a name="additionalClaims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.createWithAbbreviations.parameter.additionalClaims"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityMappedClaims.property.claims">claims</a></code> | <code>@catnekaise/cdk-iam-utilities.Claim[]</code> | *No description.* |
+
+---
+
+##### `claims`<sup>Required</sup> <a name="claims" id="@catnekaise/actions-constructs.ActionsIdentityMappedClaims.property.claims"></a>
+
+```typescript
+public readonly claims: Claim[];
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.Claim[]
+
+---
+
+
+### ActionsIdentityPolicyUtility <a name="ActionsIdentityPolicyUtility" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrain">constrain</a></code> | Append a policy with conditions contextual to GitHub Actions claims. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrainGrant">constrainGrant</a></code> | Append a grant with conditions contextual to GitHub Actions claims. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.grantOrganizationRoleChain">grantOrganizationRoleChain</a></code> | Grant role permissions to assume roles in any organization account. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.newChainedPrincipalBuilder">newChainedPrincipalBuilder</a></code> | Use this to create principals that should be assumable by roles that have been assumed via a ActionsIdentityPoolV2. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.newPrincipalBuilder">newPrincipalBuilder</a></code> | Use this to create principals that should allow assumption via a Cognito Identity Pool. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.policyVar">policyVar</a></code> | Create a policy variable. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.principalTagConditionKey">principalTagConditionKey</a></code> | Create a principal tag for claim. |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.resourcePath">resourcePath</a></code> | Build a resource path for an IAM Policy. |
+
+---
+
+##### `constrain` <a name="constrain" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrain"></a>
+
+```typescript
+public constrain(policyStatement: PolicyStatement, scope?: Construct): PolicyStatementConstrainer
+```
+
+Append a policy with conditions contextual to GitHub Actions claims.
+
+###### `policyStatement`<sup>Required</sup> <a name="policyStatement" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrain.parameter.policyStatement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+###### `scope`<sup>Optional</sup> <a name="scope" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrain.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `constrainGrant` <a name="constrainGrant" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrainGrant"></a>
+
+```typescript
+public constrainGrant(grant: Grant, scope?: Construct): GrantConstrainer
+```
+
+Append a grant with conditions contextual to GitHub Actions claims.
+
+###### `grant`<sup>Required</sup> <a name="grant" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrainGrant.parameter.grant"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.Grant
+
+---
+
+###### `scope`<sup>Optional</sup> <a name="scope" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.constrainGrant.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `grantOrganizationRoleChain` <a name="grantOrganizationRoleChain" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.grantOrganizationRoleChain"></a>
+
+```typescript
+public grantOrganizationRoleChain(identity: IGrantable, settings: GrantOrgRoleChainSettings): Grant
+```
+
+Grant role permissions to assume roles in any organization account.
+
+###### `identity`<sup>Required</sup> <a name="identity" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.grantOrganizationRoleChain.parameter.identity"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IGrantable
+
+---
+
+###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.grantOrganizationRoleChain.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GrantOrgRoleChainSettings">GrantOrgRoleChainSettings</a>
+
+---
+
+##### `newChainedPrincipalBuilder` <a name="newChainedPrincipalBuilder" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.newChainedPrincipalBuilder"></a>
+
+```typescript
+public newChainedPrincipalBuilder(): ChainedPrincipalBuilder
+```
+
+Use this to create principals that should be assumable by roles that have been assumed via a ActionsIdentityPoolV2.
+
+##### `newPrincipalBuilder` <a name="newPrincipalBuilder" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.newPrincipalBuilder"></a>
+
+```typescript
+public newPrincipalBuilder(amr?: AuthenticatedMethodReference): PrincipalBuilder
+```
+
+Use this to create principals that should allow assumption via a Cognito Identity Pool.
+
+###### `amr`<sup>Optional</sup> <a name="amr" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.newPrincipalBuilder.parameter.amr"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.AuthenticatedMethodReference">AuthenticatedMethodReference</a>
+
+---
+
+##### `policyVar` <a name="policyVar" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.policyVar"></a>
+
+```typescript
+public policyVar(claim: GhaClaim): PolicyVariable
+```
+
+Create a policy variable.
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.policyVar.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `principalTagConditionKey` <a name="principalTagConditionKey" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.principalTagConditionKey"></a>
+
+```typescript
+public principalTagConditionKey(claim: GhaClaim): AwsPrincipalTagConditionKey
+```
+
+Create a principal tag for claim.
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.principalTagConditionKey.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `resourcePath` <a name="resourcePath" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.resourcePath"></a>
+
+```typescript
+public resourcePath(value: string): ActionsIdentityIamResourcePathBuilderV2
+```
+
+Build a resource path for an IAM Policy.
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.resourcePath.parameter.value"></a>
+
+- *Type:* string
+
+Mix of strings and claims.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.create">create</a></code> | *No description.* |
+
+---
+
+##### `create` <a name="create" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.create"></a>
+
+```typescript
+import { ActionsIdentityPolicyUtility } from '@catnekaise/actions-constructs'
+
+ActionsIdentityPolicyUtility.create(scope: Construct, settings: ActionsIdentityPolicyUtilitySettings)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.create.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.create.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtilitySettings">ActionsIdentityPolicyUtilitySettings</a>
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.property.claimsContext">claimsContext</a></code> | <code>@catnekaise/cdk-iam-utilities.IClaimsContext</code> | *No description.* |
+
+---
+
+##### `claimsContext`<sup>Required</sup> <a name="claimsContext" id="@catnekaise/actions-constructs.ActionsIdentityPolicyUtility.property.claimsContext"></a>
+
+```typescript
+public readonly claimsContext: IClaimsContext;
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.IClaimsContext
+
+---
 
 
 ### ActionsIdentityPoolUtils <a name="ActionsIdentityPoolUtils" id="@catnekaise/actions-constructs.ActionsIdentityPoolUtils"></a>
@@ -1573,6 +2893,536 @@ ActionsIdentityPrincipalBuilder.create(claimMapping: ClaimMapping, identityPoolI
 
 
 
+### ChainedPrincipal <a name="ChainedPrincipal" id="@catnekaise/actions-constructs.ChainedPrincipal"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.ChainedPrincipal.Initializer"></a>
+
+```typescript
+import { ChainedPrincipal } from '@catnekaise/actions-constructs'
+
+new ChainedPrincipal(principal: PrincipalWithConditions, sessionTags: boolean, externalIds: string[])
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.Initializer.parameter.principal">principal</a></code> | <code>aws-cdk-lib.aws_iam.PrincipalWithConditions</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.Initializer.parameter.sessionTags">sessionTags</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.Initializer.parameter.externalIds">externalIds</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `principal`<sup>Required</sup> <a name="principal" id="@catnekaise/actions-constructs.ChainedPrincipal.Initializer.parameter.principal"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PrincipalWithConditions
+
+---
+
+##### `sessionTags`<sup>Required</sup> <a name="sessionTags" id="@catnekaise/actions-constructs.ChainedPrincipal.Initializer.parameter.sessionTags"></a>
+
+- *Type:* boolean
+
+---
+
+##### `externalIds`<sup>Required</sup> <a name="externalIds" id="@catnekaise/actions-constructs.ChainedPrincipal.Initializer.parameter.externalIds"></a>
+
+- *Type:* string[]
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.addToAssumeRolePolicy">addToAssumeRolePolicy</a></code> | Add the principal to the AssumeRolePolicyDocument. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.addToPolicy">addToPolicy</a></code> | Add to the policy of this principal. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.addToPrincipalPolicy">addToPrincipalPolicy</a></code> | Add to the policy of this principal. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.dedupeString">dedupeString</a></code> | Return whether or not this principal is equal to the given principal. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.toJSON">toJSON</a></code> | JSON-ify the principal. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.toString">toString</a></code> | Returns a string representation of an object. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.withConditions">withConditions</a></code> | Returns a new PrincipalWithConditions using this principal as the base, with the passed conditions added. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.withSessionTags">withSessionTags</a></code> | Returns a new principal using this principal as the base, with session tags enabled. |
+
+---
+
+##### `addToAssumeRolePolicy` <a name="addToAssumeRolePolicy" id="@catnekaise/actions-constructs.ChainedPrincipal.addToAssumeRolePolicy"></a>
+
+```typescript
+public addToAssumeRolePolicy(doc: PolicyDocument): void
+```
+
+Add the principal to the AssumeRolePolicyDocument.
+
+Add the statements to the AssumeRolePolicyDocument necessary to give this principal
+permissions to assume the given role.
+
+###### `doc`<sup>Required</sup> <a name="doc" id="@catnekaise/actions-constructs.ChainedPrincipal.addToAssumeRolePolicy.parameter.doc"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyDocument
+
+---
+
+##### `addToPolicy` <a name="addToPolicy" id="@catnekaise/actions-constructs.ChainedPrincipal.addToPolicy"></a>
+
+```typescript
+public addToPolicy(statement: PolicyStatement): boolean
+```
+
+Add to the policy of this principal.
+
+###### `statement`<sup>Required</sup> <a name="statement" id="@catnekaise/actions-constructs.ChainedPrincipal.addToPolicy.parameter.statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `addToPrincipalPolicy` <a name="addToPrincipalPolicy" id="@catnekaise/actions-constructs.ChainedPrincipal.addToPrincipalPolicy"></a>
+
+```typescript
+public addToPrincipalPolicy(_statement: PolicyStatement): AddToPrincipalPolicyResult
+```
+
+Add to the policy of this principal.
+
+###### `_statement`<sup>Required</sup> <a name="_statement" id="@catnekaise/actions-constructs.ChainedPrincipal.addToPrincipalPolicy.parameter._statement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `dedupeString` <a name="dedupeString" id="@catnekaise/actions-constructs.ChainedPrincipal.dedupeString"></a>
+
+```typescript
+public dedupeString(): string
+```
+
+Return whether or not this principal is equal to the given principal.
+
+##### `toJSON` <a name="toJSON" id="@catnekaise/actions-constructs.ChainedPrincipal.toJSON"></a>
+
+```typescript
+public toJSON(): {[ key: string ]: string[]}
+```
+
+JSON-ify the principal.
+
+Used when JSON.stringify() is called
+
+##### `toString` <a name="toString" id="@catnekaise/actions-constructs.ChainedPrincipal.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of an object.
+
+##### `withConditions` <a name="withConditions" id="@catnekaise/actions-constructs.ChainedPrincipal.withConditions"></a>
+
+```typescript
+public withConditions(conditions: {[ key: string ]: any}): PrincipalBase
+```
+
+Returns a new PrincipalWithConditions using this principal as the base, with the passed conditions added.
+
+When there is a value for the same operator and key in both the principal and the
+conditions parameter, the value from the conditions parameter will be used.
+
+###### `conditions`<sup>Required</sup> <a name="conditions" id="@catnekaise/actions-constructs.ChainedPrincipal.withConditions.parameter.conditions"></a>
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+##### `withSessionTags` <a name="withSessionTags" id="@catnekaise/actions-constructs.ChainedPrincipal.withSessionTags"></a>
+
+```typescript
+public withSessionTags(): PrincipalBase
+```
+
+Returns a new principal using this principal as the base, with session tags enabled.
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.property.assumeRoleAction">assumeRoleAction</a></code> | <code>string</code> | When this Principal is used in an AssumeRole policy, the action to use. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.property.grantPrincipal">grantPrincipal</a></code> | <code>aws-cdk-lib.aws_iam.IPrincipal</code> | The principal to grant permissions to. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.property.policyFragment">policyFragment</a></code> | <code>aws-cdk-lib.aws_iam.PrincipalPolicyFragment</code> | Return the policy fragment that identifies this principal in a Policy. |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipal.property.principalAccount">principalAccount</a></code> | <code>string</code> | The AWS account ID of this principal. |
+
+---
+
+##### `assumeRoleAction`<sup>Required</sup> <a name="assumeRoleAction" id="@catnekaise/actions-constructs.ChainedPrincipal.property.assumeRoleAction"></a>
+
+```typescript
+public readonly assumeRoleAction: string;
+```
+
+- *Type:* string
+
+When this Principal is used in an AssumeRole policy, the action to use.
+
+---
+
+##### `grantPrincipal`<sup>Required</sup> <a name="grantPrincipal" id="@catnekaise/actions-constructs.ChainedPrincipal.property.grantPrincipal"></a>
+
+```typescript
+public readonly grantPrincipal: IPrincipal;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.IPrincipal
+
+The principal to grant permissions to.
+
+---
+
+##### `policyFragment`<sup>Required</sup> <a name="policyFragment" id="@catnekaise/actions-constructs.ChainedPrincipal.property.policyFragment"></a>
+
+```typescript
+public readonly policyFragment: PrincipalPolicyFragment;
+```
+
+- *Type:* aws-cdk-lib.aws_iam.PrincipalPolicyFragment
+
+Return the policy fragment that identifies this principal in a Policy.
+
+---
+
+##### `principalAccount`<sup>Optional</sup> <a name="principalAccount" id="@catnekaise/actions-constructs.ChainedPrincipal.property.principalAccount"></a>
+
+```typescript
+public readonly principalAccount: string;
+```
+
+- *Type:* string
+
+The AWS account ID of this principal.
+
+Can be undefined when the account is not known
+(for example, for service principals).
+Can be a Token - in that case,
+it's assumed to be AWS::AccountId.
+
+---
+
+
+### ChainedPrincipalBuilder <a name="ChainedPrincipalBuilder" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder"></a>
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.approvedBy">approvedBy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.refLike">refLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.repoOrganisations">repoOrganisations</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryEquals">repositoryEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryLike">repositoryLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.whenSelfHosted">whenSelfHosted</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.add">add</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.createPrincipalAssumedBy">createPrincipalAssumedBy</a></code> | *No description.* |
+
+---
+
+##### `approvedBy` <a name="approvedBy" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.approvedBy"></a>
+
+```typescript
+public approvedBy(actors: string): ActionsIdentityConstraints
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.approvedBy.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimCondition"></a>
+
+```typescript
+public claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string): ActionsIdentityConstraints
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimEquals"></a>
+
+```typescript
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimLike"></a>
+
+```typescript
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimLike.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.claimLike.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.environmentEquals"></a>
+
+```typescript
+public environmentEquals(environment: string, additionalEnvironments: string): ActionsIdentityConstraints
+```
+
+###### `environment`<sup>Required</sup> <a name="environment" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.environmentEquals.parameter.environment"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalEnvironments`<sup>Required</sup> <a name="additionalEnvironments" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.environmentEquals.parameter.additionalEnvironments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.jobWorkflowLike"></a>
+
+```typescript
+public jobWorkflowLike(organization: string, repositoryName?: string, filename?: string, ref?: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Optional</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `refLike` <a name="refLike" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.refLike"></a>
+
+```typescript
+public refLike(refs: string): ActionsIdentityConstraints
+```
+
+###### `refs`<sup>Required</sup> <a name="refs" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.refLike.parameter.refs"></a>
+
+- *Type:* string
+
+---
+
+##### `repoOrganisations` <a name="repoOrganisations" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repoOrganisations"></a>
+
+```typescript
+public repoOrganisations(organization: string, additionalOrganizations: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repoOrganisations.parameter.organization"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalOrganizations`<sup>Required</sup> <a name="additionalOrganizations" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repoOrganisations.parameter.additionalOrganizations"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryEquals` <a name="repositoryEquals" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryEquals"></a>
+
+```typescript
+public repositoryEquals(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryEquals.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryEquals.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryLike"></a>
+
+```typescript
+public repositoryLike(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryLike.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.repositoryLike.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `whenSelfHosted` <a name="whenSelfHosted" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.whenSelfHosted"></a>
+
+```typescript
+public whenSelfHosted(): ActionsIdentityConstraints
+```
+
+##### `add` <a name="add" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.add"></a>
+
+```typescript
+public add(constraint: Constraint, additionalConstraints: Constraint): ChainedPrincipalBuilder
+```
+
+###### `constraint`<sup>Required</sup> <a name="constraint" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.add.parameter.constraint"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint
+
+---
+
+###### `additionalConstraints`<sup>Required</sup> <a name="additionalConstraints" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.add.parameter.additionalConstraints"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint
+
+---
+
+##### `createPrincipalAssumedBy` <a name="createPrincipalAssumedBy" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.createPrincipalAssumedBy"></a>
+
+```typescript
+public createPrincipalAssumedBy(scope: Construct, principal: IPrincipal, options?: ChainedPrincipalCreateOptions): IPrincipal
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.createPrincipalAssumedBy.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `principal`<sup>Required</sup> <a name="principal" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.createPrincipalAssumedBy.parameter.principal"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.IPrincipal
+
+---
+
+###### `options`<sup>Optional</sup> <a name="options" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.createPrincipalAssumedBy.parameter.options"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ChainedPrincipalCreateOptions">ChainedPrincipalCreateOptions</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.create">create</a></code> | *No description.* |
+
+---
+
+##### `create` <a name="create" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.create"></a>
+
+```typescript
+import { ChainedPrincipalBuilder } from '@catnekaise/actions-constructs'
+
+ChainedPrincipalBuilder.create(claimsContext: IClaimsContext)
+```
+
+###### `claimsContext`<sup>Required</sup> <a name="claimsContext" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.create.parameter.claimsContext"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.IClaimsContext
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ChainedPrincipalBuilder.property.constraints">constraints</a></code> | <code>@catnekaise/cdk-iam-utilities.Constraint[]</code> | *No description.* |
+
+---
+
+##### `constraints`<sup>Required</sup> <a name="constraints" id="@catnekaise/actions-constructs.ChainedPrincipalBuilder.property.constraints"></a>
+
+```typescript
+public readonly constraints: Constraint[];
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint[]
+
+---
+
+
 ### ClaimMapping <a name="ClaimMapping" id="@catnekaise/actions-constructs.ClaimMapping"></a>
 
 
@@ -1644,7 +3494,18 @@ ClaimMapping.fromDefaults(claim: GhaClaim, additionalClaims: GhaClaim)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ClaimMapping.property.claims">claims</a></code> | <code>@catnekaise/cdk-iam-utilities.Claim[]</code> | *No description.* |
 | <code><a href="#@catnekaise/actions-constructs.ClaimMapping.property.mappedClaims">mappedClaims</a></code> | <code><a href="#@catnekaise/actions-constructs.MappedClaim">MappedClaim</a>[]</code> | *No description.* |
+
+---
+
+##### `claims`<sup>Required</sup> <a name="claims" id="@catnekaise/actions-constructs.ClaimMapping.property.claims"></a>
+
+```typescript
+public readonly claims: Claim[];
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.Claim[]
 
 ---
 
@@ -1655,6 +3516,1862 @@ public readonly mappedClaims: MappedClaim[];
 ```
 
 - *Type:* <a href="#@catnekaise/actions-constructs.MappedClaim">MappedClaim</a>[]
+
+---
+
+
+### Constrainer <a name="Constrainer" id="@catnekaise/actions-constructs.Constrainer"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.Constrainer.Initializer"></a>
+
+```typescript
+import { Constrainer } from '@catnekaise/actions-constructs'
+
+new Constrainer(settings: ConstrainerSettings)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.Initializer.parameter.settings">settings</a></code> | <code><a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a></code> | *No description.* |
+
+---
+
+##### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.Constrainer.Initializer.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.approvedBy">approvedBy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.refLike">refLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.repoOrganisations">repoOrganisations</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.repositoryEquals">repositoryEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.repositoryLike">repositoryLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.whenSelfHosted">whenSelfHosted</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.Constrainer.hasResourceTagEqualToClaim">hasResourceTagEqualToClaim</a></code> | *No description.* |
+
+---
+
+##### `approvedBy` <a name="approvedBy" id="@catnekaise/actions-constructs.Constrainer.approvedBy"></a>
+
+```typescript
+public approvedBy(actors: string): ActionsIdentityConstraints
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.Constrainer.approvedBy.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.Constrainer.claimCondition"></a>
+
+```typescript
+public claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string): ActionsIdentityConstraints
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.Constrainer.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.Constrainer.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.Constrainer.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.Constrainer.claimEquals"></a>
+
+```typescript
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.Constrainer.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.Constrainer.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.Constrainer.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.Constrainer.claimLike"></a>
+
+```typescript
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.Constrainer.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.Constrainer.claimLike.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.Constrainer.claimLike.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.Constrainer.environmentEquals"></a>
+
+```typescript
+public environmentEquals(environment: string, additionalEnvironments: string): ActionsIdentityConstraints
+```
+
+###### `environment`<sup>Required</sup> <a name="environment" id="@catnekaise/actions-constructs.Constrainer.environmentEquals.parameter.environment"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalEnvironments`<sup>Required</sup> <a name="additionalEnvironments" id="@catnekaise/actions-constructs.Constrainer.environmentEquals.parameter.additionalEnvironments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.Constrainer.jobWorkflowLike"></a>
+
+```typescript
+public jobWorkflowLike(organization: string, repositoryName?: string, filename?: string, ref?: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.Constrainer.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Optional</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.Constrainer.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.Constrainer.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.Constrainer.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `refLike` <a name="refLike" id="@catnekaise/actions-constructs.Constrainer.refLike"></a>
+
+```typescript
+public refLike(refs: string): ActionsIdentityConstraints
+```
+
+###### `refs`<sup>Required</sup> <a name="refs" id="@catnekaise/actions-constructs.Constrainer.refLike.parameter.refs"></a>
+
+- *Type:* string
+
+---
+
+##### `repoOrganisations` <a name="repoOrganisations" id="@catnekaise/actions-constructs.Constrainer.repoOrganisations"></a>
+
+```typescript
+public repoOrganisations(organization: string, additionalOrganizations: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.Constrainer.repoOrganisations.parameter.organization"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalOrganizations`<sup>Required</sup> <a name="additionalOrganizations" id="@catnekaise/actions-constructs.Constrainer.repoOrganisations.parameter.additionalOrganizations"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryEquals` <a name="repositoryEquals" id="@catnekaise/actions-constructs.Constrainer.repositoryEquals"></a>
+
+```typescript
+public repositoryEquals(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.Constrainer.repositoryEquals.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.Constrainer.repositoryEquals.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.Constrainer.repositoryLike"></a>
+
+```typescript
+public repositoryLike(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.Constrainer.repositoryLike.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.Constrainer.repositoryLike.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `whenSelfHosted` <a name="whenSelfHosted" id="@catnekaise/actions-constructs.Constrainer.whenSelfHosted"></a>
+
+```typescript
+public whenSelfHosted(): ActionsIdentityConstraints
+```
+
+##### `hasResourceTagEqualToClaim` <a name="hasResourceTagEqualToClaim" id="@catnekaise/actions-constructs.Constrainer.hasResourceTagEqualToClaim"></a>
+
+```typescript
+public hasResourceTagEqualToClaim(resourceTagName: string, claim: GhaClaim): Constrainer
+```
+
+###### `resourceTagName`<sup>Required</sup> <a name="resourceTagName" id="@catnekaise/actions-constructs.Constrainer.hasResourceTagEqualToClaim.parameter.resourceTagName"></a>
+
+- *Type:* string
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.Constrainer.hasResourceTagEqualToClaim.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+
+
+
+### ConstraintsBuilder <a name="ConstraintsBuilder" id="@catnekaise/actions-constructs.ConstraintsBuilder"></a>
+
+- *Implements:* @catnekaise/cdk-iam-utilities.IConstraintsBuilder
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.ConstraintsBuilder.Initializer"></a>
+
+```typescript
+import { ConstraintsBuilder } from '@catnekaise/actions-constructs'
+
+new ConstraintsBuilder(settings: BuilderSettings)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.Initializer.parameter.settings">settings</a></code> | <code><a href="#@catnekaise/actions-constructs.BuilderSettings">BuilderSettings</a></code> | *No description.* |
+
+---
+
+##### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.ConstraintsBuilder.Initializer.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.BuilderSettings">BuilderSettings</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.approvedBy">approvedBy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.refLike">refLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.repoOrganisations">repoOrganisations</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.repositoryEquals">repositoryEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.repositoryLike">repositoryLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.whenSelfHosted">whenSelfHosted</a></code> | *No description.* |
+
+---
+
+##### `approvedBy` <a name="approvedBy" id="@catnekaise/actions-constructs.ConstraintsBuilder.approvedBy"></a>
+
+```typescript
+public approvedBy(actors: string): ActionsIdentityConstraints
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.ConstraintsBuilder.approvedBy.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimCondition"></a>
+
+```typescript
+public claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string): ActionsIdentityConstraints
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimEquals"></a>
+
+```typescript
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimLike"></a>
+
+```typescript
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimLike.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.ConstraintsBuilder.claimLike.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.ConstraintsBuilder.environmentEquals"></a>
+
+```typescript
+public environmentEquals(environment: string, additionalEnvironments: string): ActionsIdentityConstraints
+```
+
+###### `environment`<sup>Required</sup> <a name="environment" id="@catnekaise/actions-constructs.ConstraintsBuilder.environmentEquals.parameter.environment"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalEnvironments`<sup>Required</sup> <a name="additionalEnvironments" id="@catnekaise/actions-constructs.ConstraintsBuilder.environmentEquals.parameter.additionalEnvironments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.ConstraintsBuilder.jobWorkflowLike"></a>
+
+```typescript
+public jobWorkflowLike(organization: string, repositoryName?: string, filename?: string, ref?: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.ConstraintsBuilder.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Optional</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.ConstraintsBuilder.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.ConstraintsBuilder.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.ConstraintsBuilder.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `refLike` <a name="refLike" id="@catnekaise/actions-constructs.ConstraintsBuilder.refLike"></a>
+
+```typescript
+public refLike(refs: string): ActionsIdentityConstraints
+```
+
+###### `refs`<sup>Required</sup> <a name="refs" id="@catnekaise/actions-constructs.ConstraintsBuilder.refLike.parameter.refs"></a>
+
+- *Type:* string
+
+---
+
+##### `repoOrganisations` <a name="repoOrganisations" id="@catnekaise/actions-constructs.ConstraintsBuilder.repoOrganisations"></a>
+
+```typescript
+public repoOrganisations(organization: string, additionalOrganizations: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.ConstraintsBuilder.repoOrganisations.parameter.organization"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalOrganizations`<sup>Required</sup> <a name="additionalOrganizations" id="@catnekaise/actions-constructs.ConstraintsBuilder.repoOrganisations.parameter.additionalOrganizations"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryEquals` <a name="repositoryEquals" id="@catnekaise/actions-constructs.ConstraintsBuilder.repositoryEquals"></a>
+
+```typescript
+public repositoryEquals(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.ConstraintsBuilder.repositoryEquals.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.ConstraintsBuilder.repositoryEquals.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.ConstraintsBuilder.repositoryLike"></a>
+
+```typescript
+public repositoryLike(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.ConstraintsBuilder.repositoryLike.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.ConstraintsBuilder.repositoryLike.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `whenSelfHosted` <a name="whenSelfHosted" id="@catnekaise/actions-constructs.ConstraintsBuilder.whenSelfHosted"></a>
+
+```typescript
+public whenSelfHosted(): ActionsIdentityConstraints
+```
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.ConstraintsBuilder.property.constraints">constraints</a></code> | <code>@catnekaise/cdk-iam-utilities.Constraint[]</code> | *No description.* |
+
+---
+
+##### `constraints`<sup>Required</sup> <a name="constraints" id="@catnekaise/actions-constructs.ConstraintsBuilder.property.constraints"></a>
+
+```typescript
+public readonly constraints: Constraint[];
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint[]
+
+---
+
+
+### GitHubActionsClaimConstraint <a name="GitHubActionsClaimConstraint" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.Initializer"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+new GitHubActionsClaimConstraint(operator: ConditionOperator, claim: GhaClaim, values: string[])
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.Initializer.parameter.operator">operator</a></code> | <code>@catnekaise/cdk-iam-utilities.ConditionOperator</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.Initializer.parameter.claim">claim</a></code> | <code><a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.Initializer.parameter.values">values</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.Initializer.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+##### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.Initializer.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.Initializer.parameter.values"></a>
+
+- *Type:* string[]
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.assemble">assemble</a></code> | *No description.* |
+
+---
+
+##### `assemble` <a name="assemble" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.assemble"></a>
+
+```typescript
+public assemble(scope: Construct, context: ConstraintAssembleContext): ConstraintPolicyMutation[]
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.assemble.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `context`<sup>Required</sup> <a name="context" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.assemble.parameter.context"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConstraintAssembleContext
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.actorEquals">actorEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.repoOwners">repoOwners</a></code> | Value(s) of GitHub organizations or users running GitHub Actions. |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.repositoryLike">repositoryLike</a></code> | *No description.* |
+
+---
+
+##### `actorEquals` <a name="actorEquals" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.actorEquals"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.actorEquals(actors: string)
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.actorEquals.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimCondition"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string)
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimEquals"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.claimEquals(claim: GhaClaim, value: string, additionalValues: string)
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimLike"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.claimLike(claim: GhaClaim, values: string)
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.claimLike.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.environmentEquals"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.environmentEquals(environments: string)
+```
+
+###### `environments`<sup>Required</sup> <a name="environments" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.environmentEquals.parameter.environments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.jobWorkflowLike"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.jobWorkflowLike(organization: string, repositoryName: string, filename?: string, ref?: string)
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Required</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `repoOwners` <a name="repoOwners" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.repoOwners"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.repoOwners(owners: string)
+```
+
+Value(s) of GitHub organizations or users running GitHub Actions.
+
+###### `owners`<sup>Required</sup> <a name="owners" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.repoOwners.parameter.owners"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.repositoryLike"></a>
+
+```typescript
+import { GitHubActionsClaimConstraint } from '@catnekaise/actions-constructs'
+
+GitHubActionsClaimConstraint.repositoryLike(repositories: string)
+```
+
+###### `repositories`<sup>Required</sup> <a name="repositories" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.repositoryLike.parameter.repositories"></a>
+
+- *Type:* string
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.claim">claim</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.operator">operator</a></code> | <code>@catnekaise/cdk-iam-utilities.ConditionOperator</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.values">values</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.claim"></a>
+
+```typescript
+public readonly claim: string;
+```
+
+- *Type:* string
+
+---
+
+##### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.operator"></a>
+
+```typescript
+public readonly operator: ConditionOperator;
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+##### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.values"></a>
+
+```typescript
+public readonly values: string[];
+```
+
+- *Type:* string[]
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.SelfHosted">SelfHosted</a></code> | <code><a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint">GitHubActionsClaimConstraint</a></code> | *No description.* |
+
+---
+
+##### `SelfHosted`<sup>Required</sup> <a name="SelfHosted" id="@catnekaise/actions-constructs.GitHubActionsClaimConstraint.property.SelfHosted"></a>
+
+```typescript
+public readonly SelfHosted: GitHubActionsClaimConstraint;
+```
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GitHubActionsClaimConstraint">GitHubActionsClaimConstraint</a>
+
+---
+
+### GrantConstrainer <a name="GrantConstrainer" id="@catnekaise/actions-constructs.GrantConstrainer"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.GrantConstrainer.Initializer"></a>
+
+```typescript
+import { GrantConstrainer } from '@catnekaise/actions-constructs'
+
+new GrantConstrainer(scope: Construct, grant: Grant, settings: ConstrainerSettings)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.Initializer.parameter.grant">grant</a></code> | <code>aws-cdk-lib.aws_iam.Grant</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.Initializer.parameter.settings">settings</a></code> | <code><a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.GrantConstrainer.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `grant`<sup>Required</sup> <a name="grant" id="@catnekaise/actions-constructs.GrantConstrainer.Initializer.parameter.grant"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.Grant
+
+---
+
+##### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.GrantConstrainer.Initializer.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.approvedBy">approvedBy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.refLike">refLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.repoOrganisations">repoOrganisations</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.repositoryEquals">repositoryEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.repositoryLike">repositoryLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.whenSelfHosted">whenSelfHosted</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.hasResourceTagEqualToClaim">hasResourceTagEqualToClaim</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.add">add</a></code> | *No description.* |
+
+---
+
+##### `approvedBy` <a name="approvedBy" id="@catnekaise/actions-constructs.GrantConstrainer.approvedBy"></a>
+
+```typescript
+public approvedBy(actors: string): ActionsIdentityConstraints
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.GrantConstrainer.approvedBy.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.GrantConstrainer.claimCondition"></a>
+
+```typescript
+public claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string): ActionsIdentityConstraints
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.GrantConstrainer.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GrantConstrainer.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.GrantConstrainer.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.GrantConstrainer.claimEquals"></a>
+
+```typescript
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GrantConstrainer.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.GrantConstrainer.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.GrantConstrainer.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.GrantConstrainer.claimLike"></a>
+
+```typescript
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GrantConstrainer.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.GrantConstrainer.claimLike.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.GrantConstrainer.claimLike.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.GrantConstrainer.environmentEquals"></a>
+
+```typescript
+public environmentEquals(environment: string, additionalEnvironments: string): ActionsIdentityConstraints
+```
+
+###### `environment`<sup>Required</sup> <a name="environment" id="@catnekaise/actions-constructs.GrantConstrainer.environmentEquals.parameter.environment"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalEnvironments`<sup>Required</sup> <a name="additionalEnvironments" id="@catnekaise/actions-constructs.GrantConstrainer.environmentEquals.parameter.additionalEnvironments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.GrantConstrainer.jobWorkflowLike"></a>
+
+```typescript
+public jobWorkflowLike(organization: string, repositoryName?: string, filename?: string, ref?: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.GrantConstrainer.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Optional</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.GrantConstrainer.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.GrantConstrainer.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.GrantConstrainer.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `refLike` <a name="refLike" id="@catnekaise/actions-constructs.GrantConstrainer.refLike"></a>
+
+```typescript
+public refLike(refs: string): ActionsIdentityConstraints
+```
+
+###### `refs`<sup>Required</sup> <a name="refs" id="@catnekaise/actions-constructs.GrantConstrainer.refLike.parameter.refs"></a>
+
+- *Type:* string
+
+---
+
+##### `repoOrganisations` <a name="repoOrganisations" id="@catnekaise/actions-constructs.GrantConstrainer.repoOrganisations"></a>
+
+```typescript
+public repoOrganisations(organization: string, additionalOrganizations: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.GrantConstrainer.repoOrganisations.parameter.organization"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalOrganizations`<sup>Required</sup> <a name="additionalOrganizations" id="@catnekaise/actions-constructs.GrantConstrainer.repoOrganisations.parameter.additionalOrganizations"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryEquals` <a name="repositoryEquals" id="@catnekaise/actions-constructs.GrantConstrainer.repositoryEquals"></a>
+
+```typescript
+public repositoryEquals(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.GrantConstrainer.repositoryEquals.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.GrantConstrainer.repositoryEquals.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.GrantConstrainer.repositoryLike"></a>
+
+```typescript
+public repositoryLike(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.GrantConstrainer.repositoryLike.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.GrantConstrainer.repositoryLike.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `whenSelfHosted` <a name="whenSelfHosted" id="@catnekaise/actions-constructs.GrantConstrainer.whenSelfHosted"></a>
+
+```typescript
+public whenSelfHosted(): ActionsIdentityConstraints
+```
+
+##### `hasResourceTagEqualToClaim` <a name="hasResourceTagEqualToClaim" id="@catnekaise/actions-constructs.GrantConstrainer.hasResourceTagEqualToClaim"></a>
+
+```typescript
+public hasResourceTagEqualToClaim(resourceTagName: string, claim: GhaClaim): Constrainer
+```
+
+###### `resourceTagName`<sup>Required</sup> <a name="resourceTagName" id="@catnekaise/actions-constructs.GrantConstrainer.hasResourceTagEqualToClaim.parameter.resourceTagName"></a>
+
+- *Type:* string
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.GrantConstrainer.hasResourceTagEqualToClaim.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `add` <a name="add" id="@catnekaise/actions-constructs.GrantConstrainer.add"></a>
+
+```typescript
+public add(constraint: Constraint): GrantConstrainer
+```
+
+###### `constraint`<sup>Required</sup> <a name="constraint" id="@catnekaise/actions-constructs.GrantConstrainer.add.parameter.constraint"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.GrantConstrainer.create">create</a></code> | *No description.* |
+
+---
+
+##### `create` <a name="create" id="@catnekaise/actions-constructs.GrantConstrainer.create"></a>
+
+```typescript
+import { GrantConstrainer } from '@catnekaise/actions-constructs'
+
+GrantConstrainer.create(scope: Construct, grant: Grant, settings: ConstrainerSettings)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.GrantConstrainer.create.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `grant`<sup>Required</sup> <a name="grant" id="@catnekaise/actions-constructs.GrantConstrainer.create.parameter.grant"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.Grant
+
+---
+
+###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.GrantConstrainer.create.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a>
+
+---
+
+
+
+### PolicyStatementConstrainer <a name="PolicyStatementConstrainer" id="@catnekaise/actions-constructs.PolicyStatementConstrainer"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.Initializer"></a>
+
+```typescript
+import { PolicyStatementConstrainer } from '@catnekaise/actions-constructs'
+
+new PolicyStatementConstrainer(scope: Construct, policyStatement: PolicyStatement, settings: ConstrainerSettings)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.Initializer.parameter.policyStatement">policyStatement</a></code> | <code>aws-cdk-lib.aws_iam.PolicyStatement</code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.Initializer.parameter.settings">settings</a></code> | <code><a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `policyStatement`<sup>Required</sup> <a name="policyStatement" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.Initializer.parameter.policyStatement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+##### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.Initializer.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.approvedBy">approvedBy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.refLike">refLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.repoOrganisations">repoOrganisations</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryEquals">repositoryEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryLike">repositoryLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.whenSelfHosted">whenSelfHosted</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.hasResourceTagEqualToClaim">hasResourceTagEqualToClaim</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.add">add</a></code> | *No description.* |
+
+---
+
+##### `approvedBy` <a name="approvedBy" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.approvedBy"></a>
+
+```typescript
+public approvedBy(actors: string): ActionsIdentityConstraints
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.approvedBy.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimCondition"></a>
+
+```typescript
+public claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string): ActionsIdentityConstraints
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimEquals"></a>
+
+```typescript
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimLike"></a>
+
+```typescript
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimLike.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.claimLike.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.environmentEquals"></a>
+
+```typescript
+public environmentEquals(environment: string, additionalEnvironments: string): ActionsIdentityConstraints
+```
+
+###### `environment`<sup>Required</sup> <a name="environment" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.environmentEquals.parameter.environment"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalEnvironments`<sup>Required</sup> <a name="additionalEnvironments" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.environmentEquals.parameter.additionalEnvironments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.jobWorkflowLike"></a>
+
+```typescript
+public jobWorkflowLike(organization: string, repositoryName?: string, filename?: string, ref?: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Optional</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `refLike` <a name="refLike" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.refLike"></a>
+
+```typescript
+public refLike(refs: string): ActionsIdentityConstraints
+```
+
+###### `refs`<sup>Required</sup> <a name="refs" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.refLike.parameter.refs"></a>
+
+- *Type:* string
+
+---
+
+##### `repoOrganisations` <a name="repoOrganisations" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repoOrganisations"></a>
+
+```typescript
+public repoOrganisations(organization: string, additionalOrganizations: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repoOrganisations.parameter.organization"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalOrganizations`<sup>Required</sup> <a name="additionalOrganizations" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repoOrganisations.parameter.additionalOrganizations"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryEquals` <a name="repositoryEquals" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryEquals"></a>
+
+```typescript
+public repositoryEquals(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryEquals.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryEquals.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryLike"></a>
+
+```typescript
+public repositoryLike(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryLike.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.repositoryLike.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `whenSelfHosted` <a name="whenSelfHosted" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.whenSelfHosted"></a>
+
+```typescript
+public whenSelfHosted(): ActionsIdentityConstraints
+```
+
+##### `hasResourceTagEqualToClaim` <a name="hasResourceTagEqualToClaim" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.hasResourceTagEqualToClaim"></a>
+
+```typescript
+public hasResourceTagEqualToClaim(resourceTagName: string, claim: GhaClaim): Constrainer
+```
+
+###### `resourceTagName`<sup>Required</sup> <a name="resourceTagName" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.hasResourceTagEqualToClaim.parameter.resourceTagName"></a>
+
+- *Type:* string
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.hasResourceTagEqualToClaim.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+##### `add` <a name="add" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.add"></a>
+
+```typescript
+public add(constraint: Constraint): PolicyStatementConstrainer
+```
+
+###### `constraint`<sup>Required</sup> <a name="constraint" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.add.parameter.constraint"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.PolicyStatementConstrainer.create">create</a></code> | *No description.* |
+
+---
+
+##### `create` <a name="create" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.create"></a>
+
+```typescript
+import { PolicyStatementConstrainer } from '@catnekaise/actions-constructs'
+
+PolicyStatementConstrainer.create(scope: Construct, policyStatement: PolicyStatement, settings: ConstrainerSettings)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.create.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `policyStatement`<sup>Required</sup> <a name="policyStatement" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.create.parameter.policyStatement"></a>
+
+- *Type:* aws-cdk-lib.aws_iam.PolicyStatement
+
+---
+
+###### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.PolicyStatementConstrainer.create.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.ConstrainerSettings">ConstrainerSettings</a>
+
+---
+
+
+
+### PrincipalBuilder <a name="PrincipalBuilder" id="@catnekaise/actions-constructs.PrincipalBuilder"></a>
+
+#### Initializers <a name="Initializers" id="@catnekaise/actions-constructs.PrincipalBuilder.Initializer"></a>
+
+```typescript
+import { PrincipalBuilder } from '@catnekaise/actions-constructs'
+
+new PrincipalBuilder(settings: BuilderSettings)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.Initializer.parameter.settings">settings</a></code> | <code><a href="#@catnekaise/actions-constructs.BuilderSettings">BuilderSettings</a></code> | *No description.* |
+
+---
+
+##### `settings`<sup>Required</sup> <a name="settings" id="@catnekaise/actions-constructs.PrincipalBuilder.Initializer.parameter.settings"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.BuilderSettings">BuilderSettings</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.approvedBy">approvedBy</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.claimCondition">claimCondition</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.claimEquals">claimEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.claimLike">claimLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.environmentEquals">environmentEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.jobWorkflowLike">jobWorkflowLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.refLike">refLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.repoOrganisations">repoOrganisations</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.repositoryEquals">repositoryEquals</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.repositoryLike">repositoryLike</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.whenSelfHosted">whenSelfHosted</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.add">add</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.createPrincipal">createPrincipal</a></code> | *No description.* |
+
+---
+
+##### `approvedBy` <a name="approvedBy" id="@catnekaise/actions-constructs.PrincipalBuilder.approvedBy"></a>
+
+```typescript
+public approvedBy(actors: string): ActionsIdentityConstraints
+```
+
+###### `actors`<sup>Required</sup> <a name="actors" id="@catnekaise/actions-constructs.PrincipalBuilder.approvedBy.parameter.actors"></a>
+
+- *Type:* string
+
+---
+
+##### `claimCondition` <a name="claimCondition" id="@catnekaise/actions-constructs.PrincipalBuilder.claimCondition"></a>
+
+```typescript
+public claimCondition(operator: ConditionOperator, claim: GhaClaim, values: string): ActionsIdentityConstraints
+```
+
+###### `operator`<sup>Required</sup> <a name="operator" id="@catnekaise/actions-constructs.PrincipalBuilder.claimCondition.parameter.operator"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.ConditionOperator
+
+---
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.PrincipalBuilder.claimCondition.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `values`<sup>Required</sup> <a name="values" id="@catnekaise/actions-constructs.PrincipalBuilder.claimCondition.parameter.values"></a>
+
+- *Type:* string
+
+---
+
+##### `claimEquals` <a name="claimEquals" id="@catnekaise/actions-constructs.PrincipalBuilder.claimEquals"></a>
+
+```typescript
+public claimEquals(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.PrincipalBuilder.claimEquals.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.PrincipalBuilder.claimEquals.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.PrincipalBuilder.claimEquals.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `claimLike` <a name="claimLike" id="@catnekaise/actions-constructs.PrincipalBuilder.claimLike"></a>
+
+```typescript
+public claimLike(claim: GhaClaim, value: string, additionalValues: string): ActionsIdentityConstraints
+```
+
+###### `claim`<sup>Required</sup> <a name="claim" id="@catnekaise/actions-constructs.PrincipalBuilder.claimLike.parameter.claim"></a>
+
+- *Type:* <a href="#@catnekaise/actions-constructs.GhaClaim">GhaClaim</a>
+
+---
+
+###### `value`<sup>Required</sup> <a name="value" id="@catnekaise/actions-constructs.PrincipalBuilder.claimLike.parameter.value"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalValues`<sup>Required</sup> <a name="additionalValues" id="@catnekaise/actions-constructs.PrincipalBuilder.claimLike.parameter.additionalValues"></a>
+
+- *Type:* string
+
+---
+
+##### `environmentEquals` <a name="environmentEquals" id="@catnekaise/actions-constructs.PrincipalBuilder.environmentEquals"></a>
+
+```typescript
+public environmentEquals(environment: string, additionalEnvironments: string): ActionsIdentityConstraints
+```
+
+###### `environment`<sup>Required</sup> <a name="environment" id="@catnekaise/actions-constructs.PrincipalBuilder.environmentEquals.parameter.environment"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalEnvironments`<sup>Required</sup> <a name="additionalEnvironments" id="@catnekaise/actions-constructs.PrincipalBuilder.environmentEquals.parameter.additionalEnvironments"></a>
+
+- *Type:* string
+
+---
+
+##### `jobWorkflowLike` <a name="jobWorkflowLike" id="@catnekaise/actions-constructs.PrincipalBuilder.jobWorkflowLike"></a>
+
+```typescript
+public jobWorkflowLike(organization: string, repositoryName?: string, filename?: string, ref?: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.PrincipalBuilder.jobWorkflowLike.parameter.organization"></a>
+
+- *Type:* string
+
+Name of organization or user.
+
+---
+
+###### `repositoryName`<sup>Optional</sup> <a name="repositoryName" id="@catnekaise/actions-constructs.PrincipalBuilder.jobWorkflowLike.parameter.repositoryName"></a>
+
+- *Type:* string
+
+Name of repository.
+
+---
+
+###### `filename`<sup>Optional</sup> <a name="filename" id="@catnekaise/actions-constructs.PrincipalBuilder.jobWorkflowLike.parameter.filename"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+###### `ref`<sup>Optional</sup> <a name="ref" id="@catnekaise/actions-constructs.PrincipalBuilder.jobWorkflowLike.parameter.ref"></a>
+
+- *Type:* string
+
+Default value is '*'.
+
+---
+
+##### `refLike` <a name="refLike" id="@catnekaise/actions-constructs.PrincipalBuilder.refLike"></a>
+
+```typescript
+public refLike(refs: string): ActionsIdentityConstraints
+```
+
+###### `refs`<sup>Required</sup> <a name="refs" id="@catnekaise/actions-constructs.PrincipalBuilder.refLike.parameter.refs"></a>
+
+- *Type:* string
+
+---
+
+##### `repoOrganisations` <a name="repoOrganisations" id="@catnekaise/actions-constructs.PrincipalBuilder.repoOrganisations"></a>
+
+```typescript
+public repoOrganisations(organization: string, additionalOrganizations: string): ActionsIdentityConstraints
+```
+
+###### `organization`<sup>Required</sup> <a name="organization" id="@catnekaise/actions-constructs.PrincipalBuilder.repoOrganisations.parameter.organization"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalOrganizations`<sup>Required</sup> <a name="additionalOrganizations" id="@catnekaise/actions-constructs.PrincipalBuilder.repoOrganisations.parameter.additionalOrganizations"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryEquals` <a name="repositoryEquals" id="@catnekaise/actions-constructs.PrincipalBuilder.repositoryEquals"></a>
+
+```typescript
+public repositoryEquals(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.PrincipalBuilder.repositoryEquals.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.PrincipalBuilder.repositoryEquals.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `repositoryLike` <a name="repositoryLike" id="@catnekaise/actions-constructs.PrincipalBuilder.repositoryLike"></a>
+
+```typescript
+public repositoryLike(repository: string, additionalRepositories: string): ActionsIdentityConstraints
+```
+
+###### `repository`<sup>Required</sup> <a name="repository" id="@catnekaise/actions-constructs.PrincipalBuilder.repositoryLike.parameter.repository"></a>
+
+- *Type:* string
+
+---
+
+###### `additionalRepositories`<sup>Required</sup> <a name="additionalRepositories" id="@catnekaise/actions-constructs.PrincipalBuilder.repositoryLike.parameter.additionalRepositories"></a>
+
+- *Type:* string
+
+---
+
+##### `whenSelfHosted` <a name="whenSelfHosted" id="@catnekaise/actions-constructs.PrincipalBuilder.whenSelfHosted"></a>
+
+```typescript
+public whenSelfHosted(): ActionsIdentityConstraints
+```
+
+##### `add` <a name="add" id="@catnekaise/actions-constructs.PrincipalBuilder.add"></a>
+
+```typescript
+public add(constraint: Constraint, additionalConstraints: Constraint): PrincipalBuilder
+```
+
+###### `constraint`<sup>Required</sup> <a name="constraint" id="@catnekaise/actions-constructs.PrincipalBuilder.add.parameter.constraint"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint
+
+---
+
+###### `additionalConstraints`<sup>Required</sup> <a name="additionalConstraints" id="@catnekaise/actions-constructs.PrincipalBuilder.add.parameter.additionalConstraints"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint
+
+---
+
+##### `createPrincipal` <a name="createPrincipal" id="@catnekaise/actions-constructs.PrincipalBuilder.createPrincipal"></a>
+
+```typescript
+public createPrincipal(scope: Construct): IPrincipal
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="@catnekaise/actions-constructs.PrincipalBuilder.createPrincipal.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+Any construct will do.
+
+Is used for annotating warnings
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.create">create</a></code> | *No description.* |
+
+---
+
+##### `create` <a name="create" id="@catnekaise/actions-constructs.PrincipalBuilder.create"></a>
+
+```typescript
+import { PrincipalBuilder } from '@catnekaise/actions-constructs'
+
+PrincipalBuilder.create(claimsContext: IClaimsContext, constraints: Constraint[])
+```
+
+###### `claimsContext`<sup>Required</sup> <a name="claimsContext" id="@catnekaise/actions-constructs.PrincipalBuilder.create.parameter.claimsContext"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.IClaimsContext
+
+---
+
+###### `constraints`<sup>Required</sup> <a name="constraints" id="@catnekaise/actions-constructs.PrincipalBuilder.create.parameter.constraints"></a>
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint[]
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.PrincipalBuilder.property.constraints">constraints</a></code> | <code>@catnekaise/cdk-iam-utilities.Constraint[]</code> | *No description.* |
+
+---
+
+##### `constraints`<sup>Required</sup> <a name="constraints" id="@catnekaise/actions-constructs.PrincipalBuilder.property.constraints"></a>
+
+```typescript
+public readonly constraints: Constraint[];
+```
+
+- *Type:* @catnekaise/cdk-iam-utilities.Constraint[]
 
 ---
 
@@ -1705,7 +5422,42 @@ public readonly mappedClaims: MappedClaim[];
 ---
 
 
-##### `ARN` <a name="ARN" id="@catnekaise/actions-constructs.AuthenticatedMethodReference.ARN"></a>
+##### ~~`ARN`~~ <a name="ARN" id="@catnekaise/actions-constructs.AuthenticatedMethodReference.ARN"></a>
+
+- *Deprecated:* Use `AuthenticatedMethodReference.HOST` if needing more specificity than `authenticated`
+
+---
+
+
+### EnhancedFlowMatchType <a name="EnhancedFlowMatchType" id="@catnekaise/actions-constructs.EnhancedFlowMatchType"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@catnekaise/actions-constructs.EnhancedFlowMatchType.EQUALS">EQUALS</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.EnhancedFlowMatchType.CONTAINS">CONTAINS</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.EnhancedFlowMatchType.STARTS_WITH">STARTS_WITH</a></code> | *No description.* |
+| <code><a href="#@catnekaise/actions-constructs.EnhancedFlowMatchType.NOT_EQUALS">NOT_EQUALS</a></code> | *No description.* |
+
+---
+
+##### `EQUALS` <a name="EQUALS" id="@catnekaise/actions-constructs.EnhancedFlowMatchType.EQUALS"></a>
+
+---
+
+
+##### `CONTAINS` <a name="CONTAINS" id="@catnekaise/actions-constructs.EnhancedFlowMatchType.CONTAINS"></a>
+
+---
+
+
+##### `STARTS_WITH` <a name="STARTS_WITH" id="@catnekaise/actions-constructs.EnhancedFlowMatchType.STARTS_WITH"></a>
+
+---
+
+
+##### `NOT_EQUALS` <a name="NOT_EQUALS" id="@catnekaise/actions-constructs.EnhancedFlowMatchType.NOT_EQUALS"></a>
 
 ---
 

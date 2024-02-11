@@ -1,6 +1,9 @@
 export enum AuthenticatedMethodReference {
   AUTHENTICATED = 'authenticated',
   HOST = 'host',
+  /**
+   * @deprecated Use `AuthenticatedMethodReference.HOST` if needing more specificity than `authenticated`
+   */
   ARN = 'arn'
 }
 
