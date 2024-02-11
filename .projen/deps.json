@@ -1,6 +1,11 @@
 {
   "dependencies": [
     {
+      "name": "@catnekaise/cdk-iam-utilities",
+      "version": "^0.0.9",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -84,6 +89,11 @@
     {
       "name": "typescript",
       "type": "build"
+    },
+    {
+      "name": "@catnekaise/cdk-iam-utilities",
+      "version": "^0.0.9",
+      "type": "peer"
     },
     {
       "name": "aws-cdk-lib",

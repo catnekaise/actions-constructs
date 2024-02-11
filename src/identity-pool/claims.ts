@@ -1,3 +1,5 @@
+import { Claim, IClaimsContext, IMappedClaims, PassClaimsConstraintSettings } from '@catnekaise/cdk-iam-utilities';
+
 export const GitHubActionClaims = [
   'jti',
   'sub',
@@ -154,5 +156,125 @@ export class ClaimMapping {
 
   get mappedClaims(): MappedClaim[] {
     return this._claims.map(x => ({ ...x }));
+  }
+
+  get claims(): Claim[] {
+    return this._claims.map(x => ({
+      name: x.claim,
+      tagName: x.tagName,
+    }));
+  }
+}
+
+export class ActionsIdentityMappedClaims implements IMappedClaims {
+
+  static create(claim: GhaClaim, ...additionalClaims: GhaClaim[]): ActionsIdentityMappedClaims {
+    return new ActionsIdentityMappedClaims([claim, ...additionalClaims].map(x => ({
+      tagName: x,
+      name: x,
+    })));
+  }
+
+  static createWithAbbreviations(claim: GhaClaim, ...additionalClaims: GhaClaim[]): ActionsIdentityMappedClaims {
+    return new ActionsIdentityMappedClaims([claim, ...additionalClaims].map(x => {
+
+      return {
+        tagName: LibraryClaimTagNameAbbreviations[x] ?? x,
+        name: x,
+      };
+    }));
+  }
+
+  static createCustom(claims: { [key: string]: string }): ActionsIdentityMappedClaims {
+
+    for (const key of Object.keys(claims)) {
+
+      if (!GitHubActionClaims.includes(key as never)) {
+        throw new Error(`${key} is not a known claim`);
+      }
+    }
+
+    return new ActionsIdentityMappedClaims(Object.keys(claims).map(claim => ({
+      name: claim,
+      tagName: claims[claim],
+    })));
+
+  }
+
+  get claims(): Claim[] {
+    return this._claims;
+  }
+
+  constructor(private readonly _claims: Claim[]) {
+  }
+
+  toPassClaims(...claims: GhaClaim[]): PassClaimsConstraintSettings {
+
+    if (claims.length === 0) {
+      claims = this.claims.map(x => x.name as GhaClaim);
+    }
+
+    const filteredClaims: { [key: string]: string } = {};
+
+    for (const claim of claims) {
+
+      const fc = this.claims.find(x => x.name === claim);
+
+      if (!fc) {
+        throw new Error(`Cannot pass claim ${claim} as it was not mapped`);
+      }
+
+      filteredClaims[fc.tagName] = fc.tagName;
+    }
+
+    return {
+      claims: filteredClaims,
+      allowAnyTags: false,
+    };
+  }
+
+  /**
+   * Use this if you want to use https://github.com/aws-actions/configure-aws-credentials for performing role chaining.
+   */
+  toConfigureAwsCredentialsPassClaims(): PassClaimsConstraintSettings {
+    return this.toPassClaimsCustom({
+      repository: 'repository',
+      actor: 'actor',
+      ref: 'branch',
+      sha: 'commit',
+    }, false, ['GitHub', 'Workflow', 'Action', 'Branch', 'Repository', 'Actor', 'Commit']);
+
+  }
+
+  // eslint-disable-next-line max-len
+  toPassClaimsCustom(claims: {
+    [key: string]: string;
+  }, allowAnyTags?: boolean, specificallyAllowedTags?: string[]): PassClaimsConstraintSettings {
+
+    const filteredClaims: { [key: string]: string } = {};
+
+    for (const claim of Object.keys(claims)) {
+
+      const fc = this.claims.find(x => x.name === claim);
+
+      if (!fc) {
+        throw new Error(`Cannot pass claim ${claim} as it was not mapped`);
+      }
+
+      filteredClaims[fc.tagName] = claims[claim];
+    }
+
+    return {
+      claims: filteredClaims,
+      allowAnyTags: allowAnyTags === true,
+      specificallyAllowedTags: specificallyAllowedTags,
+    };
+  }
+
+  toClaimsContext(): IClaimsContext {
+    return {
+      mappedClaims: this,
+      knownClaims: GitHubActionClaims as never,
+    };
   }
 }
