@@ -1,11 +1,11 @@
 import { awscdk } from 'projen';
-import { JobPermission } from 'projen/lib/github/workflows-model';
+import { NpmAccess } from 'projen/lib/javascript';
 
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Daniel Jonsén',
   authorAddress: 'djonser1@gmail.com',
   cdkVersion: '2.82.0',
-  projenVersion: '^0.79.16',
+  projenVersion: '^0.80.0',
   defaultReleaseBranch: 'main',
   description: 'CDK Constructs for integrating GitHub Actions and AWS.',
   jsiiVersion: '~5.3.0',
@@ -15,7 +15,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'https://github.com/catnekaise/actions-constructs.git',
   buildWorkflow: true,
   pullRequestTemplate: false,
-  releaseToNpm: false,
+  releaseToNpm: true,
+  npmProvenance: true,
+  npmAccess: NpmAccess.PUBLIC,
   release: true,
   depsUpgrade: false,
   gitignore: ['.idea'],
@@ -44,37 +46,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
 });
 project.addPackageIgnore('/docs/');
 
-// All below is so that release with npm publish uses provenance.
-const packageJsTask = project.addTask('package:js', {
-  description: 'Create js language bindings',
-  exec: 'jsii-pacmak -v --target js',
-});
-
-const packageAllTask = project.tasks.tryFind('package-all');
-
-if (!packageAllTask) {
-  throw new Error('Cannot proceed');
-}
-
-packageAllTask.spawn(packageJsTask);
-
-const releaseWorkflow = project.github?.workflows.find(x => x.name === 'release');
-
-if (releaseWorkflow) {
-  releaseWorkflow.addJob('release_npm', {
-    uses: 'catnekaise/actions-constructs/.github/workflows/release-npm.yml@main',
-    with: {},
-    permissions: {
-      contents: JobPermission.READ,
-      idToken: JobPermission.WRITE,
-    },
-    secrets: {
-      NPM_TOKEN: '${{ secrets.NPM_TOKEN }}',
-    },
-    needs: ['release'],
-    if: 'needs.release.outputs.latest_commit == github.sha',
-  });
-}
 
 project.addDevDeps('@catnekaise/cdk-iam-utilities@^0.0.9');
 project.addPeerDeps('@catnekaise/cdk-iam-utilities@^0.0.9');

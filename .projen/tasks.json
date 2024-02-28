@@ -163,10 +163,10 @@
       "description": "Packages artifacts for all target languages",
       "steps": [
         {
-          "spawn": "package:dotnet"
+          "spawn": "package:js"
         },
         {
-          "spawn": "package:js"
+          "spawn": "package:dotnet"
         }
       ]
     },
