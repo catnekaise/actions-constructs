@@ -195,7 +195,7 @@ const pool = new ActionsIdentityPoolV2(stack, 'Pool', {
 const role: iam.Role = pool.defaultAuthenticatedRole;
 
 // The claims used in role assignment does not have to be claims that are mapped in the identity pool.
-pool.enhancedFlowAssignRole(role, GhaClaim.REPOSITORY_OWNER, EnhancedFlowMatchType.EQUALS, 'catnekaise/');
+pool.enhancedFlowAssignRole(role, GhaClaim.REPOSITORY_OWNER, EnhancedFlowMatchType.EQUALS, 'catnekaise');
 ```
 
 # ActionsIdentityPolicyUtility

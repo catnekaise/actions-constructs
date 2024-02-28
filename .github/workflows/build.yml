@@ -85,6 +85,31 @@ jobs:
           git add .
           git commit -s -m "chore: self mutation"
           git push origin HEAD:$PULL_REQUEST_REF
+  package-js:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions: {}
+    if: "! needs.build.outputs.self_mutation_happened"
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact
+          path: dist
+      - name: Restore build artifact permissions
+        run: cd dist && setfacl --restore=permissions-backup.acl
+        continue-on-error: true
+      - name: Prepare Repository
+        run: mv dist .repo
+      - name: Install Dependencies
+        run: cd .repo && yarn install --check-files --frozen-lockfile
+      - name: Create js artifact
+        run: cd .repo && npx projen package:js
+      - name: Collect js Artifact
+        run: mv .repo/dist dist
   package-dotnet:
     needs: build
     runs-on: ubuntu-latest
