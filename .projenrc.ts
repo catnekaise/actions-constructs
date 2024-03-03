@@ -43,11 +43,15 @@ const project = new awscdk.AwsCdkConstructLibrary({
     dotNetNamespace: 'Catnekaise.CDK.ActionsConstructs',
     packageId: 'Catnekaise.CDK.ActionsConstructs',
   },
+  publishToPypi: {
+    distName: 'catnekaise.actions-constructs',
+    module: 'catnekaise_actions_constructs',
+  },
 });
 project.addPackageIgnore('/docs/');
 
 
-project.addDevDeps('@catnekaise/cdk-iam-utilities@^0.0.9');
-project.addPeerDeps('@catnekaise/cdk-iam-utilities@^0.0.9');
+project.addDevDeps('@catnekaise/cdk-iam-utilities@^0.0.13');
+project.addPeerDeps('@catnekaise/cdk-iam-utilities@^0.0.13');
 
 project.synth();

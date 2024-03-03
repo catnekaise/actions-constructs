@@ -2,7 +2,7 @@
   "dependencies": [
     {
       "name": "@catnekaise/cdk-iam-utilities",
-      "version": "^0.0.9",
+      "version": "^0.0.13",
       "type": "build"
     },
     {
@@ -92,7 +92,7 @@
     },
     {
       "name": "@catnekaise/cdk-iam-utilities",
-      "version": "^0.0.9",
+      "version": "^0.0.13",
       "type": "peer"
     },
     {
