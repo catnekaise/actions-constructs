@@ -19,6 +19,7 @@
     "package-all": "npx projen package-all",
     "package:dotnet": "npx projen package:dotnet",
     "package:js": "npx projen package:js",
+    "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
@@ -34,7 +35,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@catnekaise/cdk-iam-utilities": "0.0.9",
+    "@catnekaise/cdk-iam-utilities": "0.0.13",
     "@types/jest": "^29.5.8",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^6",
@@ -58,7 +59,7 @@
     "typescript": "~5.2.2"
   },
   "peerDependencies": {
-    "@catnekaise/cdk-iam-utilities": "^0.0.9",
+    "@catnekaise/cdk-iam-utilities": "^0.0.13",
     "aws-cdk-lib": "^2.82.0",
     "constructs": "^10.0.5"
   },
@@ -129,6 +130,10 @@
   "jsii": {
     "outdir": "dist",
     "targets": {
+      "python": {
+        "distName": "catnekaise.actions-constructs",
+        "module": "catnekaise_actions_constructs"
+      },
       "dotnet": {
         "namespace": "Catnekaise.CDK.ActionsConstructs",
         "packageId": "Catnekaise.CDK.ActionsConstructs"
