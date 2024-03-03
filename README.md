@@ -1,6 +1,6 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@catnekaise/actions-constructs?style=flat-square)](https://www.npmjs.com/package/@catnekaise/actions-constructs)
 [![Nuget](https://img.shields.io/nuget/v/Catnekaise.CDK.ActionsConstructs?style=flat-square)](https://www.nuget.org/packages/Catnekaise.CDK.ActionsConstructs/)
-[![PyPI](https://img.shields.io/pypi/v/catnekaise.cdk-actions-constructs?style=flat-square)](https://pypi.org/project/catnekaise.cdk-actions-constructs/)
+[![PyPI](https://img.shields.io/pypi/v/catnekaise.actions-constructs?style=flat-square)](https://pypi.org/project/catnekaise.actions-constructs/)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/catnekaise/actions-constructs?sort=semver&style=flat-square)](https://github.com/catnekaise/actions-constructs/releases)
 
 # Actions Constructs
